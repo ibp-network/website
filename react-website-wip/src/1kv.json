@@ -1,0 +1,14 @@
+[
+	{
+		"desc": "Launch 2 KSM Validators.",
+		"reward": ["15% staking fee"],
+		"cost": ["$300 / month"],
+		"req": ["Apply to the 1000 Validators Program", "Minimum 20 KSM (2 validators * 10 KSM) self-bond"]
+	},
+	{
+		"desc": "Launch 1 DOT Validator.",
+		"reward": ["5% staking fee"],
+		"cost": ["$150 / month"],
+		"req": ["Obtain rank 25 in Milestone 1", "Minimum 5000 DOT self-bond or lowered good-intentions self-bond"]
+	}
+]

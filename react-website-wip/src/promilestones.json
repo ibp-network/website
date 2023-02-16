@@ -1,0 +1,82 @@
+[
+	{
+		"desc": "Launch 3 Boot Nodes (1 each) for Westend, Kusama, Polkadot and have them included in the node source code. Members must have the boot node included in node source code.",
+		"reward": ["+30 validator points"],
+		"cost": ["$600 - $3000/month", "$5000+ in hardware costs"],
+		"req": ["Obtain rank 25 in existing 1000 Validators Milestone 2", "Apply to the Infrastructure Builders Program - Pro"],
+		"sla": ["Hosted in colocation on owned hardware with NVMe disks", "99.9% uptime", "Polled every 5 minutes", "Node telemetry exported to endpoints"],
+		"other": ["Members must select a datacenter facility and deploy boot nodes in the datacenter", "Members are required to show that the datacenter they’ve selected for operations is 100% renewable powered or a plan on how the member intends to offset their carbon emissions.", "Members must agree to deploy all services at no less than 250,000 IOPs per 1TB on NVMe Gen 4.", "Members are required to operate the bootnodes for the lifetime of their membership in the program and for a period of at least 2 years.If membership lasts less than 2 years, members will return a pro - rata amount from the lump payment in Professional Milestone 2. "]
+	},
+	{
+		"desc": "Members are required to go through an interview and assessment process to review existing work and for Administrative Curators to get to know the member. Members will begin voting with maximum conviction on their Polkadot and Kusama validators.",
+		"reward": ["One time payment $15,000"],
+		"cost": ["Complete Milestone 1 - Professional", "Lock 5,000 DOT & 20 KSM in max conviction voting"],
+		"req": ["Obtain rank 25 in existing 1000 Validators Milestone 2", "Apply to the Infrastructure Builders Program - Pro"],
+		"sla": ["Hosted in colocation on owned hardware with NVMe disks", "99.9% uptime", "Polled every 5 minutes", "Node telemetry exported to endpoints"],
+		"interview": ["Members will be asked by Program Curators to submit supporting documents and assessed on the following criteria."],
+		"incorporation": ["Members must submit incorporation documents showing beneficial ownership and formation date.", "Members must have a webiste"],
+		"resume": ["The majority owner of the company and at least one partner, equity holder or employee must submit their updated resume."],
+		"resumeDetails": ["6+ Years of aggregate systems administration experience",
+			"6+ Years of aggregate networking administration experience",
+			"6+ Years of aggregate devops experience",
+			"Include Github profile URLs",
+			"Include LinkedIn profile URLs"
+		],
+		"location": ["Members must submit their colocation facility location and submit lease contract or invoice to the corporation listed above. If the member is located in a high-priority location (Africa, Asia, Middle East, Oceania, South America) they will be prioritized relative to low-priority locations (Europe, North America)."],
+		"renewable": ["Members must show that the datacenter selected is 100% renewable powered or submit a plan for how they intend to offset their carbon footprint."],
+		"sign": ["Members must sign and verify from their Polkadot address from existing 1000 Validators Milestone 2"]
+	},
+	{
+		"desc": "Launch RPC service for 3 relay chains. Each full node should conform to specifications for IaaS services. Members will operate a minimum of 2x full archive nodes for Polkadot, Kusama, and 1x Westend. Members are required to join at least 2x GeoDNS pools and 2x Anycast pools. Joining an anycast pool requires announcing IP addresses.",
+		"reward": ["$2,500 - $10,000 per month", "+30 validator points"],
+		"cost": ["Milestone 2 - Pro", "Hardware (approx. $50,000)"],
+		"req": ["Complete Pro Milestone 2"],
+		"rankings": ["+1 rank for everyday where services meets Service Level Agreement", "-7 rank for every 15 minutes where service is unresponsive", "-1 rank for every 15 minutes where response time is too high"],
+		"sla": ["Hosted in colocation on owned hardware with NVMe disks", "99.9% uptime", "Polled every 5 minutes", "Node telemetry exported to endpoints"]
+	},
+	{
+		"desc": "Launch 1 boot node for every common good parachain. As of the time of writing this there are 5 common goods parachains active in aggregate on Polkadot, Kusama and Westend. Members must have the boot node included in node source code.",
+		"reward": ["One tiem payment $15,000"],
+		"cost": ["Milestone 3 - Pro", "$200 - $500/month", "Hardware costs"],
+		"req": ["Obtain rank 180 in Milestone 3 - Pro", "Members are required to operate the bootnodes for the lifetime of their membership in the program and for a period of at least 2 years.", "If membership lasts less than 2 years, members will return a pro-rata amount from the lump payment in Professional Milestone 4."],
+		"sla": ["Less than 100ms Response Time (Network Latency - Response Latency = Response Time)", "99.9% Uptime", "Polled every 5 minutes", "Node telemetry exported to endpoints"]
+	},
+	{
+		"desc": "Launch 1 RPC service node for all common goods parachains on all 3 relay networks. Currently there are 5 common goods parachains on Polkadot, Kusama, and Westend requiring a minimum of 5 full archive nodes. Members are required to join at least 2x GeoDNS groups and 2x Anycast groups.",
+		"reward": ["$2,500 to $10,000+ per month (Payment for 2 * N collators)", "+30 validator points", "+30 validator points"],
+		"cost": ["Milestone 4 - Pro", "$200 - $500 / month", "Hardware costs"],
+		"req": ["Obtain rank 180 in Milestone 3 - Pro", "Members are required to operate the bootnodes for the lifetime of their membership in the program and for a period of at least 2 years.", " If membership lasts less than 2 years, members will return a pro-rata amount from the lump payment in Professional Milestone 4."],
+		"sla": ["Less than 100ms Response Time (Network Latency - Response Latency = Response Time)", "99.9% Uptime", "Polled every 5 minutes", "Node telemetry exported to endpoints"]
+	},
+	{
+		"desc": "Join a community operated snapshot service. By joining community operated snapshot services you mirror the data of the host and provide those mirrors to the public. This can be done as a torrent end-point or other method.",
+		"reward": ["$800 / month", "+15 validator points"],
+		"cost": ["Milestone 5 - Pro", "$200 - $400 / month", "Hardware costs"],
+		"req": ["Obtain rank 180 in Milestone 5 - Professional"]
+	},
+	{
+		"desc": "Complete atleast 2 of the following tasks.",
+		"req": ["Complete Milestone 6 - Pro"],
+		"tasks": [
+			["Host / manage a GeoDNS group for RPC service and have the domain inserted into a PolkaJS wallet as an endpoint"],
+			["Host / Manage an Anycast group for RPC service and have the domain inserted into PolkaJS wallet as an endpoint"],
+			["Host / Manage a Snapshot service (Counts as joining a service from Milestone 6)"],
+			["Develop tools / applications necessary for the operation of the Infrastructure Builders Program."],
+			["Host telemetry tools / checks"]
+		],
+		"reward": [
+			["$600 / month", "$600 / month for man-hours", "+30 validator points"],
+			["$1,200 / month", "$600 / month for man-hours", "$600 per month for ARIN, RIPE, etc. fees", "+30 validator points"],
+			["$1,600 / month", "$800 / month for infrastructure costs", "$800 / month for man-hours", "+30 validator points"],
+			["Man hours at $50 / hour", "+30 validator points"],
+			["+30 validator points"]
+		]
+
+	},
+	{
+		"desc": "Operate a nomination pool for the treasury to provide treasury revenue and additional slots to the 1000 Validators Program. Members who progress to this level will be hand selected due to their past performance, contributions, and desired future participation in the ecosystem.",
+		"reward": ["+100 validator points", "+1 Polkadot validator"],
+		"req": ["Milestone 7 - Pro complete & Receive Invitation from Administrative Curators to Milestone 8 - Pro"]
+
+	}
+]
