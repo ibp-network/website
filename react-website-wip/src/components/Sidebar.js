@@ -5,16 +5,18 @@ export default function Sidebar() {
   function makeListItem(list, items, isPink){
     let color = "";
     let fontWeight = "";
+    let title = 'Hobbyist';
     if(isPink){
       color = "alt";
       fontWeight = 400;
+      title = 'Pro'
     }
 
     for(var i = 0; i < list.length; i++)
     {
       items.push(
         <div className={'flex row center'}>
-        <a className={`flex col dropdown-item ${color}`}>
+        <a href={`#${title}-${i+1}`} className={`flex col dropdown-item ${color}`}>
             <h4>{"Milestone " + (i + 1)} </h4>
             <p style={{fontWeight: fontWeight }}>{list[i]}</p>
 
@@ -62,9 +64,9 @@ export default function Sidebar() {
 
       <ul>
         <li><h4> Milestone Map</h4></li>
-          <li><a className={"dropdown-item"}><h4> Prerequisites</h4> <div className={'indicator'}></div></a></li>
-          <li><a className={"dropdown-item"}><h4> Launch 2 KSM Validators</h4> <div className={'indicator'}></div></a></li>
-          <li><a className={"dropdown-item"}><h4> Launch 1 DOT Validator</h4> <div className={'indicator'}></div></a></li>
+          <li><a href="#Prerequisites" className={"dropdown-item"}><h4> Prerequisites</h4> <div className={'indicator'}></div></a></li>
+          <li><a href="#1000 Validators-1" className={"dropdown-item"}><h4> Launch 2 KSM Validators</h4> <div className={'indicator'}></div></a></li>
+          <li><a href="#1000 Validators-2" className={"dropdown-item"}><h4> Launch 1 DOT Validator</h4> <div className={'indicator'}></div></a></li>
         <li>
           <div onClick={() =>{
             if(showHobby == 0){

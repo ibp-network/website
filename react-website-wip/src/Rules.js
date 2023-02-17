@@ -8,14 +8,18 @@ import thousandMilestones from './1kv.json'
 
 
 export default function Rules() {
+  //Contains the JSON files for each routes (Hobbyist, Pro, PreRequisite)
   const thousand = thousandMilestones;
   const pro = proMilestones;
   const hobby = hobbyistMilestones;
 
+  //Contains an array of JSX components derived from the respective JSON files
   const milestones = [];
   const hobbyistMilestonesList = [];
   const thousandMilestonesList = [];
 
+
+  //Iterate through the JSON files and push the JSX object to their respective arrays
   for(var i = 0; i < thousandMilestones.length; i++){
     thousandMilestonesList.push(<Milestone type={"1000 Validators"} index={i+1} details={thousand[i]}/>);
   }
@@ -24,12 +28,14 @@ export default function Rules() {
     hobbyistMilestonesList.push(<Milestone type={"Hobbyist"} index={i+1} details={hobby[i]} isInterview={false}/>);
   }
 
+  //Edge case for Pro Milestone 2 - Interview & assessment
   for(var i = 0; i < pro.length; i++){
     var interview = false;
     if(pro[i].interview != null){
       interview = true;
     }
 
+  //Edge case for Pro Milestone 7, composed of just tasks and rewards leading to major layout difference
     if(i != 6){
       milestones.push(<Milestone type={"Pro"} index={i + 1} details={pro[i]}/>);
     }
@@ -42,7 +48,7 @@ export default function Rules() {
   return(
     <>
       <Sidebar/>
-      <div className='flex center col'>
+      <div id="Prerequisites" className='flex center col'>
         <div className={'milestone-container'} style={{marginTop: '10rem'}}>
           <h1 style={{marginTop: '2rem'}}>Join us in building <br/> a <span className="alt">Decentralized</span> <br/> Network</h1>
           <div style={{marginTop: '2rem'}}>
@@ -77,7 +83,7 @@ export default function Rules() {
           </div>
 
         </div>
-        
+
         <div style={{height: '15rem', border: '1px dashed var(--pink)'}}></div>
         {thousandMilestonesList}
         <div style={{height: '15rem', border: '1px dashed var(--pink)'}}></div>

@@ -5,6 +5,8 @@ import proMilestones from './promilestones.json'
 
 function Milestone({type, index, details}){
   var toWhite = "";
+
+  //The Hobbyist styling is in Black and White
   if(type == "Hobbyist"){
     toWhite = "white";
   }
@@ -42,7 +44,7 @@ function Milestone({type, index, details}){
 
 //This is the regular layout
   return(
-    <div className={`milestone-container ${toWhite}`}>
+    <div id={`${type}-${index}`} className={`milestone-container ${toWhite}`}>
       <div className={`milestone-desc-container ${toWhite}`}>
         <h1 className={`alt ${toWhite}`}>{type} Milestone {index}</h1>
         <p className={`milestone-description ${toWhite}`}>{details.desc}</p>
@@ -123,7 +125,7 @@ function Milestone7({type, index, details, isInterview}){
             </div>);
     }
     return(
-      <div className={`milestone-container ${toWhite}`}>
+      <div id={`${type}-${index}`} className={`milestone-container ${toWhite}`}>
         <div className='milestone-desc-container'>
           <h1 className={`alt ${toWhite}`}>{type} Milestone {index}</h1>
           <p className={`${toWhite}`}>{details.desc}</p>
@@ -230,5 +232,22 @@ function DropDown({title, desc, other, isWhite}){
     </div>
   )
 }
+/*
+function useOnScreen(ref: RefObject<HTMLElement>) {
 
+  const [isIntersecting, setIntersecting] = useState(false)
+
+  const observer = useMemo(() => new IntersectionObserver(
+    ([entry]) => setIntersecting(entry.isIntersecting)
+  ), [ref])
+
+
+  useEffect(() => {
+    observer.observe(ref.current)
+    return () => observer.disconnect()
+  }, [])
+
+  return isIntersecting
+}
+*/
 export {DropDown, Info, Milestone, Milestone7};

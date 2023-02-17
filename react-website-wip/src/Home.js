@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import Button from './components/Button'
-import joinImage from './assets/img/JoinIBP.svg'
-import questions from './assets/img/Questions.svg'
+
 
 export default function Home() {
   return(
@@ -78,7 +77,7 @@ function Join(){
       </div>
 
 
-        <img style={{objectFit: 'cover', height:'100%', width: '40%'}} src={joinImage}/>
+        <img style={{objectFit: 'cover', height:'100%', width: '40%'}} src={'img/JoinIBP.svg'}/>
 
     </div>
   )
@@ -90,7 +89,7 @@ function Questions(){
 
     <div className={"mini-container flex row center"} style={{marginBottom: '4rem'}}>
 
-        <img className={"abs square-image"} style={{ left: '-10%'}} src={questions}/>
+        <img className={"abs square-image"} style={{ left: '-10%'}} src="/img/Questions.svg"/>
 
       <div className={"flex col center "} style={{width: '32rem', textAlign:'center'}}>
           <h1>Have questions?<br/> Join us in the discussion </h1>
@@ -100,10 +99,12 @@ function Questions(){
           </p>
           <div className={"flex row"}>
             <Button content="Discussion"/>
+            <Button icon="element-icon.svg"/>
+            <Button icon="github-icon.svg"/>
           </div>
         </div>
 
-          <img className={"abs square-image"} style={{transform: "scale(-1)", right: '-10%'}} src={questions}/>
+          <img className={"abs square-image"} style={{transform: "scale(-1)", right: '-10%'}} src="/img/Questions.svg"/>
 
             <div className="gradient-right" style={{left: '0', height: '50vh'}}></div>
             <div className="gradient-right" style={{right: '0',  height: '50vh', transform: 'scale(-1)'}}></div>

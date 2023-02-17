@@ -138,6 +138,29 @@ div.border-box.white:hover > h3{
   color: var(--pink);
 }
 
+/* SCROLL BAR STYLING */
+
+/* width */
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-left: 1px solid var(--dark-grey);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border: 1px solid var(--pink);
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--pink);
+}
+
 
 /*Helpers*/
 .right-align{
@@ -261,6 +284,9 @@ div.border-box.white:hover > h3{
 .button:hover > h4{
   color: var(--white);
 }
+.button:hover > img{
+  filter: saturate(0%) brightness(500%);
+}
 
 
 /* GRID */
@@ -298,6 +324,7 @@ footer{
   width: 100%;
   bottom: 0;
   background-color: var(--dark);
+  height: 5rem;
 
 }
 .footer-pair:nth-of-type(n+2){
@@ -340,6 +367,7 @@ footer{
 
 /* SIDEBAR */
 .sidebar-container{
+  background-color: var(--dark);
   display: inline-flex;
   position: fixed;
   height: 80%;
@@ -483,4 +511,10 @@ a.dropdown-item:hover > h4, a.dropdown-item:hover > p{
 
 h1.white, h2.white, h3.white, h4.white{
   color: var(--white);
+}
+
+@media only screen and (max-width: 600px) {
+  html{
+    font-size:12px;
+  }
 }

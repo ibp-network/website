@@ -12,12 +12,12 @@ export default function Footer() {
         </div>
 
         <div className="footer-pair">
-          <FooterItem name="Apply" link="/apply"/>
-          <FooterItem name="Builders" link="/builders"/>
+          <FooterItem name="Apply" />
+          <FooterItem name="Builders" />
         </div>
 
         <div className="footer-pair">
-          <FooterItem name="Map" link="/map"/>
+          <FooterItem name="Map" />
         </div>
 
       </footer>
@@ -27,8 +27,12 @@ export default function Footer() {
 
 
 function FooterItem({name, link}){
+  var destination = link;
+  if(link == null){
+    destination = "comingsoon";
+  }
   return(
-    <Link to={link}>
+    <Link to={destination}>
       <div className="footer-item">
           <div className="footer-indicator">
             <h3 className="arrow-up dark">&#60; &nbsp;</h3>
