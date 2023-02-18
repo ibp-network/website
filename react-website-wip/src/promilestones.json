@@ -1,5 +1,10 @@
 [
 	{
+	"desc": "Apply through the pre-approval form for IBP Professional and wait for acceptance.",
+	"reward": ["Acceptance into the Infrastructure Builders Program - Pro"],
+	"link": ["Pre-Approval", "https://docs.google.com/forms/d/e/1FAIpQLSdhCFsscVz66ZocyKfPQzmsmoR9Y_ZlfGGyAUBJ6ThZDS8hRQ/viewform"]
+	},
+	{
 		"desc": "Launch 3 Boot Nodes (1 each) for Westend, Kusama, Polkadot and have them included in the node source code. Members must have the boot node included in node source code.",
 		"reward": ["+30 validator points"],
 		"cost": ["$600 - $3000/month", "$5000+ in hardware costs"],

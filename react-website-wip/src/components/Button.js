@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from "react-router-dom";
 
 
-export default function Button({content, icon, link}) {
+export default function Button({content, icon, link, target}) {
   var iconComponent;
   var text;
   var destination;
@@ -15,6 +15,16 @@ export default function Button({content, icon, link}) {
   }
   else{
     text = <div className={"button"}><h4 className={"alt"}>{content}</h4>  </div>;
+  }
+  if(target != null){
+    return(
+      <a href={link} target={target}>
+        <div>
+            {text}
+            {iconComponent}
+        </div>
+      </a>
+    )
   }
   return(
     <Link to={destination}>

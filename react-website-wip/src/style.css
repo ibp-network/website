@@ -209,6 +209,15 @@ div.border-box.white:hover > h3{
   display: none;
 }
 
+a.link > p:hover{
+  text-decoration: underline;
+  color: var(--pink);
+}
+a:hover > h4{
+  color: var(--pink);
+}
+
+
 /* General Containers */
 
 .wrapper{
@@ -367,6 +376,7 @@ footer{
 
 /* SIDEBAR */
 .sidebar-container{
+
   background-color: var(--dark);
   display: inline-flex;
   position: fixed;
@@ -513,8 +523,90 @@ h1.white, h2.white, h3.white, h4.white{
   color: var(--white);
 }
 
+/* BUILDERS PAGE */
+.builder-card-container{
+  width: 16rem;
+  padding: 2rem 1rem 2rem 1rem;
+  margin: 1rem;
+  border: 1px solid var(--dark-grey);
+  border-radius: 0.5rem;
+}
+
+.builder-icon{
+  border-radius: 50%;
+  width: 3rem;
+  margin-right: 1rem;
+}
+
+.card-container{
+  width: 60%;
+  flex-wrap: wrap;
+}
+
+.sidebar-popout-container{
+  display: none;
+  height: 0px;
+}
+.sidebar-popout-content{
+  display: none;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  html{
+    font-size:12px;
+  }
+
+  /* SIDEBAR */
+  .sidebar-container.hide{
+    transform: translate(-110%);
+  }
+  .sidebar-container.show{
+    transform: translate(0%);
+  }
+  .milestone-container{
+    width: 50%;
+  }
+  .sidebar-popout-container{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    position: absolute;
+  }
+  .sidebar-popout-content{
+    display: flex;
+    transform: translateX(-1rem);
+    position: fixed;
+    margin: auto;
+    z-index: 100;
+    width: 4rem;
+    height: 5rem;
+    border: 1px solid var(--pink);
+    border-left-style: none;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+  .sidebar-popout-content > h1{
+    pointer-events: none;
+  }
+  .sidebar-popout-content.show > h1{
+    transform: rotate(180deg);
+  }
+  .sidebar-popout-content.hide > h1{
+    transform: rotate(0deg);
+  }
+  .sidebar-popout-content:hover{
+    transform: translateX(0rem);
+    background-color: var(--pink);
+  }
+}
+
 @media only screen and (max-width: 600px) {
   html{
     font-size:12px;
+  }
+
+  .milestone-container{
+    width: 100%;
   }
 }

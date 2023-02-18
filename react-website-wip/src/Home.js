@@ -38,7 +38,7 @@ function Hero() {
 
             <div style={{marginTop:'1rem'}} className={'right-align flex col'}>
               <Button content="Learn More" link="/rules"/>
-              <div style={{maxWidth: "39rem", marginTop: "1rem"}}>
+              <div style={{maxWidth: "39rem", marginTop: "1rem", marginLeft: '4rem'}}>
                 <p>
                 Operators in the program will lease rack space at unique facilities and deploy owned hardware to provide
                 common endpoint and functionalityfor a variety of core infrastructure services (RPC, Snapshots, Boot nodes,
@@ -72,7 +72,7 @@ function Join(){
         </p>
         <div className={"flex row"}>
           <Button content="Learn More" link="/rules"/>
-          <Button content="Apply Now"/>
+          <Button content="Apply Now" link='https://forms.gle/dbsyK4KPEJ8N4Qmz5' target='_blank'/>
         </div>
       </div>
 
@@ -98,9 +98,9 @@ function Questions(){
             Polkassembly. We are always open to new minds and new ideas.
           </p>
           <div className={"flex row"}>
-            <Button content="Discussion"/>
+            <Button content="Discussion" link='https://kusama.polkassembly.io/post/1969' target='_blank'/>
             <Button icon="element-icon.svg"/>
-            <Button icon="github-icon.svg"/>
+            <Button icon="github-icon.svg" link='https://github.com/dotsama-ibp/website' target='_blank'/>
           </div>
         </div>
 

@@ -1,11 +1,13 @@
 import React from 'react'
 import {useState} from 'react'
+import Button from './Button'
 
 export default function Sidebar() {
   function makeListItem(list, items, isPink){
     let color = "";
     let fontWeight = "";
     let title = 'Hobbyist';
+
     if(isPink){
       color = "alt";
       fontWeight = 400;
@@ -26,6 +28,8 @@ export default function Sidebar() {
       );
     }
   }
+
+  var [display, changeDisplay] = useState('hide');
 
   const displayMap = ['none', 'block'];
   const arrowMap = [ 90, 270];
@@ -60,8 +64,8 @@ export default function Sidebar() {
 
   return(
     <>
-    <div className={"sidebar-container col"}>
 
+    <div className={ `sidebar-container col ${display}` }>
       <ul>
         <li><h4> Milestone Map</h4></li>
           <li><a href="#Prerequisites" className={"dropdown-item"}><h4> Prerequisites</h4> <div className={'indicator'}></div></a></li>
@@ -105,6 +109,13 @@ export default function Sidebar() {
 
       </ul>
     </div>
+
+    <div className={'sidebar-popout-container flex'}>
+      <div className={`sidebar-popout-content flex center ${display}`} >
+        <h1> &#62; </h1>
+      </div>
+    </div>
+
     </>
   )
 }

@@ -36,7 +36,7 @@ export default function Rules() {
     }
 
   //Edge case for Pro Milestone 7, composed of just tasks and rewards leading to major layout difference
-    if(i != 6){
+    if(pro[i].tasks == null){
       milestones.push(<Milestone type={"Pro"} index={i + 1} details={pro[i]}/>);
     }
     else{

@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import proMilestones from './promilestones.json'
+import Button from './components/Button'
 
 
 function Milestone({type, index, details}){
@@ -13,6 +14,7 @@ function Milestone({type, index, details}){
   var other = [];
   var interview;
   var sla;
+  var link;
   var tasksList = [];
   var [display, changeDisplay] = useState('none');
   var [arrow, rotateArrow] = useState(90);
@@ -42,6 +44,11 @@ function Milestone({type, index, details}){
           </div>;
   }
 
+  //If milestone has button links
+  if(details.link != null){
+    link = <Button content={details.link[0]} link={details.link[1]}/>;
+  }
+
 //This is the regular layout
   return(
     <div id={`${type}-${index}`} className={`milestone-container ${toWhite}`}>
@@ -61,8 +68,10 @@ function Milestone({type, index, details}){
           <Info title="Requirements" desc={details.req} other={other} isWhite={toWhite}/>
           <DropDown title="Rankings" desc={details.rankings} isWhite={toWhite}/>
         </div>
-
           {sla}
+          <div className="flex center">
+            {link}
+          </div>
           </div>
 
           <div style={{marginTop: '2rem'}} className={'flex center'} onClick={() => {
@@ -75,6 +84,7 @@ function Milestone({type, index, details}){
                 rotateArrow(90);
               }
           }}>
+
             <h1 style={{transform: `rotate(${arrow}deg)`}} className={`arrow-up alt ${toWhite}`}>&#60;</h1>
           </div>
     </div>
@@ -109,13 +119,15 @@ function Milestone7({type, index, details, isInterview}){
     </>
   }
 
-
+  //If milestone have SLA
   if(details.sla != null){
     sla = <div className={`sla-container ${toWhite}`}>
             <Info title="Service Level Agreement" desc={details.sla} isWhite={toWhite}/>
           </div>;
   }
 
+
+  //If milestone is broken up into mini-tasks
   if(details.tasks != null){
     for(var i = 0; i < details.tasks.length; i++){
       tasksList.push(
