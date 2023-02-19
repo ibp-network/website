@@ -24,29 +24,14 @@
 		"element": "@metaspan:matrix.org"
 	},
 	{
-		"name": "Milos",
+		"name": "Miloš",
 		"org": "Gatotech",
 		"URL" : "",
 		"icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/hwFbHwAJsNFnCQakYAdxSWTE?width=437&height=437&method=scale",
 		"level": "Pro",
 		"element": "@gatotech:matrix.org"
 	},
-	{
-		"name": "bLd",
-		"org": "Astar",
-		"URL": "https://astar.network/",
-		"icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/yOcaNNpZwQQBcOOPCfnBguNF?width=437&height=437&method=scale",
-		"level": "Pro",
-		"element": "@gatotech:matrix.org"
-	},
-	{
-		"name": "CoinStudio",
-		"org": "CoinStudio",
-		"URL": "",
-		"icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/lYJwgJDHSdTTYnmNoAVjsYMz?width=437&height=437&method=scale",
-		"level": "Pro",
-		"element": "@coinstudio:matrix.org"
-	},
+
 	{
 		"name": "Paulo",
 		"org": "TurboFlakes",
@@ -54,22 +39,6 @@
 		"icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/TLwVisaSZtCPIatAiNBkJqwn?width=437&height=437&method=scale",
 		"level": "Pro",
 		"element": "@turboflakes:matrix.org"
-	},
-	{
-		"name": "dev0_sik",
-		"org": "crifferent",
-		"URL": "crifferent.de",
-		"icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/FbEIsMPjXvzHwLlETPCtcMmv?width=437&height=437&method=scale",
-		"level": "Pro",
-		"element": "@dev0_sik:matrix.org"
-	},
-	{
-		"name": "Art",
-		"org": "PureStake",
-		"URL": "purestake.com",
-		"icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAF5JREFUWEft0rENwCAQBEG+KZp0f27HFLEJsoZ8JTR/s5/3Wxe/8cF4HYIRcBEkWAVqb4MEq0DtbZBgFai9DRKsArW3QYJVoPY2SLAK1N4GCVaB2tsgwSpQexv8veABxu5nmbAR/pMAAAAASUVORK5CYII=",
-		"level": "Pro",
-		"element": "@artk:matrix.org"
 	},
 	{
 		"name": "tugy",

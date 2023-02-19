@@ -46,6 +46,7 @@
 
 html{
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -551,6 +552,15 @@ h1.white, h2.white, h3.white, h4.white{
   display: none;
 }
 
+.builder-icon{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-color: var(--white);
+  width: 3rem;
+  height: 3rem;
+}
+
 
 @media only screen and (max-width: 1200px) {
   html{
@@ -605,7 +615,9 @@ h1.white, h2.white, h3.white, h4.white{
   html{
     font-size:12px;
   }
-
+  footer{
+    display: none;
+  }
   .milestone-container{
     width: 100%;
   }
