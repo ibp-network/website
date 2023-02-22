@@ -4,6 +4,7 @@ import Home from './Home'
 import Rules from './Rules'
 import Builders from './Builders'
 import ComingSoon from './ComingSoon'
+import Hamburger from './components/Hamburger'
 
 import {Routes, Route} from "react-router-dom";
 
@@ -12,6 +13,7 @@ function App() {
   return (
 
         <div className="wrapper">
+          <Hamburger/>
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/rules" element={<Rules/>}/>

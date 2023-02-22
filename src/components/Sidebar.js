@@ -29,6 +29,7 @@ export default function Sidebar() {
     }
   }
 
+  //For mobile layout only
   var [display, changeDisplay] = useState('hide');
 
   const displayMap = ['none', 'block'];
@@ -66,6 +67,19 @@ export default function Sidebar() {
     <>
 
     <div className={ `sidebar-container col ${display}` }>
+
+      <div onClick={() => {
+        if(display == 'hide'){
+          changeDisplay('show');
+        }
+        else{
+          changeDisplay('hide');
+        }
+      }} className={`right-align flex center close`}>
+        <h4>Close&nbsp;</h4>
+        <h4 className={'flex center'} style={{padding:'0.25rem'}}>&nbsp;X</h4>
+      </div>
+
       <ul>
         <li><h4> Milestone Map</h4></li>
           <li><a href="#Prerequisites" className={"dropdown-item"}><h4> Prerequisites</h4> <div className={'indicator'}></div></a></li>
@@ -108,11 +122,19 @@ export default function Sidebar() {
         </li>
 
       </ul>
-    </div>
-
-    <div className={'sidebar-popout-container flex'}>
-      <div className={`sidebar-popout-content flex center ${display}`} >
-        <h1> &#62; </h1>
+</div>
+    //For mobile responsive layout only
+    <div onClick={() =>{
+      if(display == 'hide'){
+        changeDisplay('show');
+      }
+      else{
+        changeDisplay('hide');
+      }
+    }} className={`sidebar-popout-container flex ${display}`}>
+      <div className={`sidebar-popout-content flex center `} >
+        <h4> Menu  </h4>
+        <h3> &nbsp; &#62; </h3>
       </div>
     </div>
 

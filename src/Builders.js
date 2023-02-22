@@ -18,7 +18,7 @@ export default function Builders(){
     <div className="flex col center" style={{marginTop:'10%', marginBottom: '6rem'}}>
       <div className="flex col center" style={{width: '32rem'}}>
         <h1>Meet the <span className="alt">Curators!</span></h1>
-        <p style={{textAlign: 'center'}}>The program is currently in proof-of-concept as we aim to validate the network design and reference hardware</p>
+        <p style={{textAlign: 'center'}}> Administrative Curators take oversight of the Infrastructure Builders Program, ensuring the health of the program.</p>
       </div>
       <div className="flex center card-container">
         {adminCurators}

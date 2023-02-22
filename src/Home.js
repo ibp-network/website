@@ -1,5 +1,6 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Button from './components/Button'
+import TypeText from './components/TypeText'
 
 
 export default function Home() {
@@ -31,17 +32,18 @@ function Hero() {
           <div className={"content flex col"}>
 
             <div>
-              <h1 style={{maxWidth: "42rem"}}>Providing Core Infrastructure Services that are</h1>
-              <h1 style={{color: "var(--pink)", fontSize: "4rem"}}> Decentralized_</h1>
+              <h1 id="hero-line">Providing Core Infrastructure Services that are</h1>
+              <TypeText text={['Decentralized', 'Autonomous', 'Fault-Tolerant', 'Self-Sustaining']}/>
+
               <h3>On Polkadot and Kusama</h3>
             </div>
 
             <div style={{marginTop:'1rem'}} className={'right-align flex col'}>
               <Button content="Learn More" link="/rules"/>
-              <div style={{maxWidth: "39rem", marginTop: "1rem", marginLeft: '4rem'}}>
+              <div id="hero-desc">
                 <p>
                 Operators in the program will lease rack space at unique facilities and deploy owned hardware to provide
-                common endpoint and functionalityfor a variety of core infrastructure services (RPC, Snapshots, Boot nodes,
+                common endpoint and functionality for a variety of core infrastructure services (RPC, Snapshots, Boot nodes,
                 Validators, Telemetry).
                 </p>
               </div>
@@ -77,7 +79,7 @@ function Join(){
       </div>
 
 
-        <img style={{objectFit: 'cover', height:'100%', width: '40%'}} src={'img/JoinIBP.svg'}/>
+        <img className='half-image' src={'img/JoinIBP.svg'}/>
 
     </div>
   )
@@ -89,7 +91,7 @@ function Questions(){
 
     <div className={"mini-container flex row center"} style={{marginBottom: '4rem'}}>
 
-        <img className={"abs square-image"} style={{ left: '-10%'}} src="/img/Questions.svg"/>
+        <img className={"abs square-image left"} src="/img/Questions.svg"/>
 
       <div className={"flex col center "} style={{width: '32rem', textAlign:'center'}}>
           <h1>Have questions?<br/> Join us in the discussion </h1>
@@ -104,10 +106,10 @@ function Questions(){
           </div>
         </div>
 
-          <img className={"abs square-image"} style={{transform: "scale(-1)", right: '-10%'}} src="/img/Questions.svg"/>
+          <img className={"abs square-image right"} style={{transform: "scale(-1)"}} src="/img/Questions.svg"/>
 
-            <div className="gradient-right" style={{left: '0', height: '50vh'}}></div>
-            <div className="gradient-right" style={{right: '0',  height: '50vh', transform: 'scale(-1)'}}></div>
+            <div className="gradient" style={{left: '0'}}></div>
+            <div className="gradient" style={{right: '0', transform: 'scale(-1)'}}></div>
 
       </div>
     </>
