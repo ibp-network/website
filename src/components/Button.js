@@ -28,10 +28,12 @@ export default function Button({content, icon, link, target}) {
   }
   return(
     <Link to={destination}>
-      <div>
-          {text}
-          {iconComponent}
-      </div>
+
+        <div>
+            {text}
+            {iconComponent}
+        </div>
+  
     </Link>
   )
 }

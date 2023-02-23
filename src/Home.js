@@ -1,11 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import Button from './components/Button'
 import TypeText from './components/TypeText'
+import Canvas from './components/Canvas'
 
 
 export default function Home() {
   return(
     <>
+
         <Hero/>
         <Join/>
         <Questions/>

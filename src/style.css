@@ -139,6 +139,35 @@ div.border-box.white:hover > h3{
   color: var(--pink);
 }
 
+#noise{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  z-index: 9999;
+  mix-blend-mode: color-dodge;
+  opacity: 0.15;
+
+  background-image: url('https://www.dropbox.com/s/h7ab1c82ctzy83n/noise.png?raw=1');
+  animation: blink2 0.25s step-end infinite;
+}
+
+#CRT {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  pointer-events: none;
+  user-select: none;
+  z-index: 9999;
+  mix-blend-mode: darken;
+  opacity: 0.3;
+  background-image: url('https://t3.ftcdn.net/jpg/01/30/89/60/360_F_130896025_AmxPagZnhnEjivDvFGlwAhND3LOUSF7S.jpg');
+  background-size: contain;
+  animation: crt 0.5s step-end infinite;
+
+}
+
 .blinking-cursor::after{
   content: "_";
   animation: blink 1s step-end infinite;
@@ -150,6 +179,31 @@ div.border-box.white:hover > h3{
   }
   50% {
     opacity: 0;
+  }
+}
+
+@keyframes blink2 {
+  from,
+  to {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(-1);
+  }
+}
+@keyframes crt{
+  from,
+  to {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(16px);
+  }
+  50%{
+    transform: translateY(32px);
+  }
+  75%{
+    transform: translateY(16px)
   }
 }
 /* SCROLL BAR STYLING */
@@ -336,6 +390,7 @@ a:hover > h4{
 .button:hover > img{
   filter: saturate(0%) brightness(500%);
 }
+
 
 
 /* GRID */
@@ -737,9 +792,16 @@ h1.white, h2.white, h3.white, h4.white{
   .hamburger-container:hover{
     cursor: pointer;
   }
-  .big-menu-container > div > a > h3:hover{
-    color: var(--pink);
+  .big-menu-container > div > div{
+    margin-top: 1rem;
+    padding: 0.25rem;
   }
+  .big-menu-container > div > div:hover{
+    background-color: var(--pink);
+  }
+
+
+
 
   #decentralized{
     color: var(--pink);

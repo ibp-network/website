@@ -14,6 +14,7 @@ function Milestone({type, index, details}){
   var other = [];
   var interview;
   var sla;
+  var region;
   var link;
   var tasksList = [];
   var [display, changeDisplay] = useState('none');
@@ -21,6 +22,10 @@ function Milestone({type, index, details}){
 
   if(details.other != null){
     other = details.other;
+  }
+
+  if(details.region != null){
+    region = <DropDown title="Regions & Payments" desc={details.region}/>
   }
 
   //Show dropdowns for interview portion
@@ -65,6 +70,7 @@ function Milestone({type, index, details}){
             <Info title="Reward" desc={details.reward} isWhite={toWhite}/>
             <Info title="Cost" desc={details.cost} isWhite={toWhite}/>
           </div>
+          {region}
           <Info title="Requirements" desc={details.req} other={other} isWhite={toWhite}/>
           <DropDown title="Rankings" desc={details.rankings} isWhite={toWhite}/>
         </div>
@@ -118,6 +124,8 @@ function Milestone7({type, index, details, isInterview}){
       <DropDown title="Sign & Verify"     desc={details.sign} isWhite={toWhite}/>
     </>
   }
+
+
 
   //If milestone have SLA
   if(details.sla != null){
@@ -244,6 +252,8 @@ function DropDown({title, desc, other, isWhite}){
     </div>
   )
 }
+
+
 /*
 function useOnScreen(ref: RefObject<HTMLElement>) {
 

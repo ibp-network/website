@@ -33,7 +33,8 @@
 	},
 	{
 		"desc": "Launch RPC service for 3 relay chains. Each full node should conform to specifications for IaaS services. Members will operate a minimum of 2x full archive nodes for Polkadot, Kusama, and 1x Westend. Members are required to join at least 2x GeoDNS pools and 2x Anycast pools. Joining an anycast pool requires announcing IP addresses.",
-		"reward": ["$2,500 - $10,000 per month", "+30 validator points"],
+		"reward": ["Payment varies depending on region served", "+30 validator points"],
+		"region": [["Africa : ", "$3,796.80"],["Asia : ", "$3,436.80"],["Central America : ", "3,436.80"],["Europe : ", "2,356.80"],["Middle East : ", "$2,716.80"],["North America : ", "$2,356.80"],["Oceania : ", "$3,616.80"],["South America : ", "$3,436.80"] ],
 		"cost": ["Milestone 2 - Pro", "Hardware (approx. $50,000)"],
 		"req": ["Complete Pro Milestone 2"],
 		"rankings": ["+1 rank for everyday where services meets Service Level Agreement", "-7 rank for every 15 minutes where service is unresponsive", "-1 rank for every 15 minutes where response time is too high"],
@@ -41,14 +42,15 @@
 	},
 	{
 		"desc": "Launch 1 boot node for every common good parachain. As of the time of writing this there are 5 common goods parachains active in aggregate on Polkadot, Kusama and Westend. Members must have the boot node included in node source code.",
-		"reward": ["One tiem payment $15,000"],
+		"reward": ["One time payment of $15,000"],
 		"cost": ["Milestone 3 - Pro", "$200 - $500/month", "Hardware costs"],
 		"req": ["Obtain rank 180 in Milestone 3 - Pro", "Members are required to operate the bootnodes for the lifetime of their membership in the program and for a period of at least 2 years.", "If membership lasts less than 2 years, members will return a pro-rata amount from the lump payment in Professional Milestone 4."],
 		"sla": ["Less than 100ms Response Time (Network Latency - Response Latency = Response Time)", "99.9% Uptime", "Polled every 5 minutes", "Node telemetry exported to endpoints"]
 	},
 	{
 		"desc": "Launch 1 RPC service node for all common goods parachains on all 3 relay networks. Currently there are 5 common goods parachains on Polkadot, Kusama, and Westend requiring a minimum of 5 full archive nodes. Members are required to join at least 2x GeoDNS groups and 2x Anycast groups.",
-		"reward": ["$2,500 to $10,000+ per month (Payment for 2 * N collators)", "+30 validator points", "+30 validator points"],
+		"reward": ["Payment varies depending on region served", "+30 validator points", "+30 validator points"],
+		"region": [["Africa : ", "$5,132.00"],["Asia : ", "$4,592.00"],["Central America : ", "4,592.00"],["Europe : ", "2,972.00"],["Middle East : ", "$3,512.00"],["North America : ", "$2,972.00"],["Oceania : ", "$4,862.00"],["South America : ", "$4,592.00"] ],
 		"cost": ["Milestone 4 - Pro", "$200 - $500 / month", "Hardware costs"],
 		"req": ["Obtain rank 180 in Milestone 3 - Pro", "Members are required to operate the bootnodes for the lifetime of their membership in the program and for a period of at least 2 years.", " If membership lasts less than 2 years, members will return a pro-rata amount from the lump payment in Professional Milestone 4."],
 		"sla": ["Less than 100ms Response Time (Network Latency - Response Latency = Response Time)", "99.9% Uptime", "Polled every 5 minutes", "Node telemetry exported to endpoints"]

@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import Button from './Button'
+import {Link} from "react-router-dom";
+
 
 export default function Hamburger(){
     var [display, changeDisplay] = useState('hide');
@@ -19,10 +21,51 @@ export default function Hamburger(){
         <div className={`big-menu-container col center ${display}`}>
 
           <div className={'flex center col'}>
-            <a href='/'><h3>Home</h3></a>
-            <a href='/rules'><h3>Rules</h3></a>
-            <a href='/builders'><h3>Builders</h3></a>
-            <a href='/comingsoon'><h3>Map</h3></a>
+            <div onClick={() => {
+              if(display == 'hide'){
+                changeDisplay('show');
+              }
+              else{
+                changeDisplay('hide');
+              }
+            }}>
+              <Link to={'/'}><h3>Home</h3></Link>
+            </div>
+
+
+            <div onClick={() => {
+              if(display == 'hide'){
+                changeDisplay('show');
+              }
+              else{
+                changeDisplay('hide');
+              }
+            }}>
+              <Link to={'/rules'}><h3>Rules</h3></Link>
+            </div>
+
+            <div onClick={() => {
+              if(display == 'hide'){
+                changeDisplay('show');
+              }
+              else{
+                changeDisplay('hide');
+              }
+            }}>
+              <Link to={'/builders'}><h3>Builders</h3></Link>
+            </div>
+
+            <div onClick={() => {
+              if(display == 'hide'){
+                changeDisplay('show');
+              }
+              else{
+                changeDisplay('hide');
+              }
+            }}>
+              <Link to={'/comingsoon'}><h3>Map</h3></Link>
+            </div>
+
             <br/>
             <a href='https://forms.gle/dbsyK4KPEJ8N4Qmz5' target='_blank'><h3>Apply</h3></a>
             <div onClick={() => {
@@ -44,4 +87,17 @@ export default function Hamburger(){
 
       </>
     )
+}
+
+function Item({name, link, changeDisplay, display}){
+
+  return(
+  <div onClick={() => {
+    if(display == 'hide'){
+      changeDisplay('show');
+    }
+    else{
+      changeDisplay('hide');
+    }
+  }}><Link to={link}><h3>{name}</h3></Link></div>)
 }
