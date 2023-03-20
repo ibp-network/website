@@ -1,8 +1,17 @@
-import React from 'react'
+import React from 'react';
 import {Link} from "react-router-dom";
+import {useState, useEffect} from 'react';
 
 
 export default function Footer() {
+  const [wikiLink, setLink] = useState('https://wiki.dotters.network/');
+  useEffect(() => {
+    const url = window.location.href;
+    if(url == 'https://ibp.network/'){
+      setLink('https://wiki.ibp.network/');
+    }
+  });
+
   return(
 
       <footer>
@@ -18,6 +27,11 @@ export default function Footer() {
 
         <div className="footer-pair">
           <FooterItem name="Map" />
+          <FooterItem name="Health" link='https://monitor.dotters.network/' target='_blank' />
+        </div>
+
+        <div className="footer-pair">
+          <FooterItem name="wiki" link={wikiLink} target='_blank'/>
         </div>
 
       </footer>

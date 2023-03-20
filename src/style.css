@@ -33,7 +33,6 @@
 }
 ::selection {
   background: var(--pink);
-
   color: var(--dark);
 }
 
@@ -161,7 +160,7 @@ div.border-box.white:hover > h3{
   user-select: none;
   z-index: 9999;
   mix-blend-mode: darken;
-  opacity: 0.3;
+  opacity: 0.10;
   background-image: url('https://t3.ftcdn.net/jpg/01/30/89/60/360_F_130896025_AmxPagZnhnEjivDvFGlwAhND3LOUSF7S.jpg');
   background-size: contain;
   animation: crt 0.5s step-end infinite;
@@ -394,7 +393,6 @@ a:hover > h4{
 
 
 /* GRID */
-
 .black{
   background-color: var(--dark);
 }

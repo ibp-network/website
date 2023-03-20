@@ -79,7 +79,7 @@ export default function Rules() {
           and costs of each milestone? View our milestone map below to learn more!</p>
 
           <div className={'flex center'}>
-            <p style={{color: 'var(--dark-grey)', marginTop: '5rem'}}>Costs, rewards and requirements will vary depending on the milestone.</p>
+            <p style={{color: 'var(--grey)', marginTop: '5rem'}}>Costs, rewards and requirements will vary depending on the milestone.</p>
           </div>
 
         </div>
