@@ -153,8 +153,8 @@ for (var i = 0; i < locationData.data.length; i++) {
         <div class="row">
           <p class='map-name'>${markerData[i].name} </p> <p class='map-level'>&nbsp;${markerData[i].member}&nbsp;${markerData[i].level}</p>
         </div>
-        <p class='map-classifier'>Address:</p>
-        <p class='map-name'>${markerData[i].address} </p>
+        <p class='map-classifier'>Website:</p>
+        <a class='map-name' href='${markerData[i].website}' target='_blank'>${markerData[i].website} </a>
       </div>
     </div>
     <p class='map-status'>${markerData[i].status} </p>
