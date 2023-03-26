@@ -6,6 +6,7 @@ import Rules from './Rules'
 import Builders from './Builders'
 import ComingSoon from './ComingSoon'
 import Hamburger from './components/Hamburger'
+import Map from './Map'
 
 import {Routes, Route} from "react-router-dom";
 
@@ -17,13 +18,14 @@ function App() {
   return (
 
         <div className="wrapper">
-        <div id="CRT"></div>
-        <div id="noise"></div>
+          <div id="CRT"></div>
+          <div id="noise"></div>
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/rules" element={<Rules/>}/>
-              <Route path="/builders" element={<Builders/>}/>
+            <Route path="/builders" element={<Builders/>}/>
             <Route path="/comingsoon" element={<ComingSoon/>}/>
+            <Route path="/map" element={<Map/>}/>
           </Routes>
           <Hamburger/>
           <Footer/>

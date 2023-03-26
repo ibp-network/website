@@ -26,7 +26,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-pair">
-          <FooterItem name="Map" />
+          <FooterItem name="Map" link='/map'/>
           <FooterItem name="Health" link='https://monitor.dotters.network/' target='_blank' />
         </div>
 

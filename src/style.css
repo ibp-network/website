@@ -144,7 +144,7 @@ div.border-box.white:hover > h3{
   position: fixed;
   pointer-events: none;
   user-select: none;
-  z-index: 9999;
+  z-index: 9998;
   mix-blend-mode: color-dodge;
   opacity: 0.15;
 
@@ -158,13 +158,17 @@ div.border-box.white:hover > h3{
   position: fixed;
   pointer-events: none;
   user-select: none;
-  z-index: 9999;
+  z-index: 9998;
   mix-blend-mode: darken;
   opacity: 0.10;
   background-image: url('https://t3.ftcdn.net/jpg/01/30/89/60/360_F_130896025_AmxPagZnhnEjivDvFGlwAhND3LOUSF7S.jpg');
   background-size: contain;
   animation: crt 0.5s step-end infinite;
 
+}
+
+iframe{
+  z-index: 9999;
 }
 
 .blinking-cursor::after{
@@ -427,7 +431,7 @@ footer{
   bottom: 0;
   background-color: var(--dark);
   height: 5rem;
-  z-index: 101;
+  z-index: 9999;
 
 }
 .footer-pair:nth-of-type(n+2){
