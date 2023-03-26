@@ -1,6 +1,6 @@
-import clipBorder from './world.json' assert { type: "json" };
 
 //Get JSON from Gist
+var clipBorder = JSON.parse(Get('./world.json'));
 var jsonFile = JSON.parse(Get('https://raw.githubusercontent.com/ibp-network/config/main/members.json'));
 var memberKeys = Object.entries(jsonFile.members);
 
