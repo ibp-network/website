@@ -3,40 +3,40 @@
     "name": "Otar",
     "org": "Parity",
     "URL": "https://www.parity.io/",
-    "icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/m.parity.io/bf5564f45b0ebb015a12e263ef626471008d044f?width=437&height=437&method=scale",
-    "level": "Curator",
+    "logo": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/m.parity.io/bf5564f45b0ebb015a12e263ef626471008d044f?width=437&height=437&method=scale",
+    "current_level": "Curator",
     "element": "@otar:parity.io"
   },
   {
     "name": "will",
     "org": "Parity",
     "URL": "https://www.parity.io/",
-    "icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.parity.io/VHWQAdnqPdvIhJRrCUqtziJH?width=437&height=437&method=scale",
-    "level": "Curator",
+    "logo": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.parity.io/VHWQAdnqPdvIhJRrCUqtziJH?width=437&height=437&method=scale",
+    "current_level": "Curator",
     "element": "@metakosmia:parity.io"
   },
   {
     "name": "Anaelle",
     "org": "Parity",
     "URL": "https://www.parity.io/",
-    "icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/QXdAKEDPHiZPAocOwajoHyEw?width=437&height=437&method=scale",
-    "level": "Curator",
+    "logo": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/QXdAKEDPHiZPAocOwajoHyEw?width=437&height=437&method=scale",
+    "current_level": "Curator",
     "element": "@anaelle:parity.io"
   },
   {
     "name": "bLd",
     "org": "Astar",
     "URL": "https://astar.network/",
-    "icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/yOcaNNpZwQQBcOOPCfnBguNF?width=437&height=437&method=scale",
-    "level": "Curator",
+    "logo": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/yOcaNNpZwQQBcOOPCfnBguNF?width=437&height=437&method=scale",
+    "current_level": "Curator",
     "element": "@bld759:matrix.org"
   },
   {
     "name": "CoinStudio",
     "org": "CoinStudio",
     "URL": "",
-    "icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/lYJwgJDHSdTTYnmNoAVjsYMz?width=437&height=437&method=scale",
-    "level": "Curator",
+    "logo": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/lYJwgJDHSdTTYnmNoAVjsYMz?width=437&height=437&method=scale",
+    "current_level": "Curator",
     "element": "@coinstudio:matrix.org"
   }
 ]

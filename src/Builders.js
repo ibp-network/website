@@ -1,16 +1,23 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Button from './components/Button'
 import builders from './members.json'
 import curators from './curators.json'
 
 
 export default function Builders(){
+  var proJson = JSON.parse(Get('https://raw.githubusercontent.com/ibp-network/config/main/members.json'));
+  var memberKeys = Object.entries(proJson.members);
+  var members = [];
 
+  for(var i = 0; i < memberKeys.length; i++){
+    members.push(memberKeys[i][1]);
+  }
 
+  console.log(members);
   var proBuilders = [];
   var adminCurators = [];
 
-  append(proBuilders, builders);
+  append(proBuilders, members);
   append(adminCurators, curators);
 
   return(
@@ -40,13 +47,23 @@ export default function Builders(){
 
 function append(array, json){
   for(var i = 0; i < json.length; i++){
+    var membership = '';
+    if(json[i].membership == 'professional') membership = 'PRO'
     array.push(<BuilderCard name={json[i].name}
-                            level={json[i].level}
+                            level={membership + ' ' + json[i].current_level}
                             element={json[i].element}
-                            icon={json[i].icon}
-                            url={json[i].url}
-                            org={json[i].org}/>);
+                            icon={json[i].logo}
+                            url={json[i].website}
+                            org={json[i].website}/>);
   }
+}
+
+function Get(url){
+    var Httpreq = new XMLHttpRequest(); // a new request
+        Httpreq.open("GET",url,false);
+        Httpreq.send(null);
+
+    return Httpreq.responseText;
 }
 
 function BuilderCard({name, level, element, icon, org, url}){
@@ -56,7 +73,7 @@ function BuilderCard({name, level, element, icon, org, url}){
       <div>
         <h3>{name}</h3>
         <a href={url} target="_blank">
-          <h4>{org}</h4>
+          <p>{org}</p>
         </a>
         <p>Level: <span className={'alt'}>{level}</span></p>
         <a className="link" href={`https://matrix.to/#/${element}`} target='_blank'>

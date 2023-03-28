@@ -636,6 +636,9 @@ h1.white, h2.white, h3.white, h4.white{
 
 /* BUILDERS PAGE */
 .builder-card-container{
+  height: 6rem;
+  max-height: 6rem;
+  min-height: 6rem;
   width: 16rem;
   padding: 2rem 1rem 2rem 1rem;
   margin: 1rem;

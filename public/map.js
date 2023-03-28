@@ -10,7 +10,7 @@ var markerData = [];
 
 //Parameters for map zoom
 const maxZoom = 4;
-const minZoom = 3;
+const minZoom = 2;
 
 for(var i = 0; i < memberKeys.length; i++){
 
@@ -169,10 +169,26 @@ for (var i = 0; i < locationData.data.length; i++) {
 markers.eachLayer(function(marker){
   marker.on('popupopen', function(){
     marker.setIcon(clickedIcon);
+
+    markers.eachLayer(function(otherMarker){
+      if(otherMarker !== marker.target){
+        otherMarker.setOpacity(0.25);
+      }
+    });
+
+    marker.setOpacity(1);
+
   });
 
   marker.on('popupclose', function(){
     marker.setIcon(icon);
+
+    markers.eachLayer(function(otherMarker){
+      if(otherMarker !== marker.target){
+        otherMarker.setOpacity(1);
+      }
+    });
+
   });
 });
 markers.addTo(map);

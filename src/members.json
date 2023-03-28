@@ -3,7 +3,7 @@
 		"name": "Tom",
     		"org": "StakePlus",
 		"URL": "stake.plus",
-		"icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAF5JREFUWEft0rENwCAQBEG+ACp3Ta7NFLEJsoZ8JTR/s9/nWxe/8cF4HYIRcBEkWAVqb4MEq0DtbZBgFai9DRKsArW3QYJVoPY2SLAK1N4GCVaB2tsgwSpQexv8veAB5KtdSauHFxMAAAAASUVORK5CYII=",
+		"logo": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR0IArs4c6QAAAF5JREFUWEft0rENwCAQBEG+ACp3Ta7NFLEJsoZ8JTR/s9/nWxe/8cF4HYIRcBEkWAVqb4MEq0DtbZBgFai9DRKsArW3QYJVoPY2SLAK1N4GCVaB2tsgwSpQexv8veAB5KtdSauHFxMAAAAASUVORK5CYII=",
 		"level": "Pro",
 		"element": "@stakeplus:matrix.org"
 	},
@@ -11,7 +11,7 @@
 		"name": "kukabi",
 		"org": "helikon",
 		"URL": "helikon.io",
-		"icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/YEMtkRggwrAEPTMuHnSUqLYQ?width=566&height=566&method=scale",
+		"logo": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/YEMtkRggwrAEPTMuHnSUqLYQ?width=566&height=566&method=scale",
 		"level": "Pro",
 		"element": "@helikon:matrix.org"
 	},
@@ -19,7 +19,7 @@
 		"name": "Derek",
 		"org": "metaspan",
 		"URL": "metaspan.com",
-		"icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/ookEboDLeYjzRqnUSYaOYGuW?width=566&height=566&method=scale",
+		"logo": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/ookEboDLeYjzRqnUSYaOYGuW?width=566&height=566&method=scale",
 		"level": "Pro",
 		"element": "@metaspan:matrix.org"
 	},
@@ -27,7 +27,7 @@
 		"name": "Miloš",
 		"org": "Gatotech",
 		"URL" : "",
-		"icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/hwFbHwAJsNFnCQakYAdxSWTE?width=437&height=437&method=scale",
+		"logo": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/hwFbHwAJsNFnCQakYAdxSWTE?width=437&height=437&method=scale",
 		"level": "Pro",
 		"element": "@gatotech:matrix.org"
 	},
@@ -36,7 +36,7 @@
 		"name": "Paulo",
 		"org": "TurboFlakes",
 		"URL": "turboflakes.io",
-		"icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/TLwVisaSZtCPIatAiNBkJqwn?width=437&height=437&method=scale",
+		"logo": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/TLwVisaSZtCPIatAiNBkJqwn?width=437&height=437&method=scale",
 		"level": "Pro",
 		"element": "@turboflakes:matrix.org"
 	},
@@ -44,7 +44,7 @@
 		"name": "tugy",
 		"org": "Amforc",
 		"URL": "amforc.com",
-		"icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/HGyPgyHWiHUMSvTxtsjOGixW?width=437&height=437&method=scale",
+		"logo": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/HGyPgyHWiHUMSvTxtsjOGixW?width=437&height=437&method=scale",
 		"level": "Pro",
 		"element": "@tugytur:matrix.org"
 	},
@@ -52,7 +52,7 @@
 		"name": "Gustav",
 		"org": "Dwellir",
 		"URL": "https://dwellir.com/",
-		"icon": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/FlLZsFaKzCKbLeLQtAmtVxcf?width=437&height=437&method=scale",
+		"logo": "https://matrix-client.matrix.org/_matrix/media/r0/thumbnail/matrix.org/FlLZsFaKzCKbLeLQtAmtVxcf?width=437&height=437&method=scale",
 		"level": "Pro",
 		"element": "@gustavden3:matrix.org"
 	}
