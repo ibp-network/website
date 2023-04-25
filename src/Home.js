@@ -219,7 +219,7 @@ function Services({reference}){
           </div>
 
           <div>
-            <h6>80ms avg ––</h6>
+            <h6>under 100ms ––</h6>
             <p className={'alt'}>
               experience the synergy of rapid support and exceptional performance for maximum productivity.
             </p>
