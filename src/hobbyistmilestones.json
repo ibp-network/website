@@ -1,5 +1,7 @@
 [
   {
+    "index": "1",
+    "type": "hobbyist",
 		"desc": "Launch 2 full archive nodes for RPC endpoints (Polkadot, Kusama) and have them included in the Professional overflow RPC pool.",
 		"reward": ["+60 validator points"],
     "cost": ["$300 / month for dedicated server"],
@@ -8,6 +10,8 @@
 		"sla": ["99.9% Uptime", "99.9% uptime", "Less than 100ms response time","Polled every 5 minutes", "Node telemetry exported to endpoints"]
 	},
   {
+    "index": "2",
+    "type": "hobbyist",
     "desc": "Launch 2 full archive nodes for RPC endpoints for 2 program supported parachains and have them included in the Professional overflow RPC pool.",
     "reward": ["+60 validator points"],
     "cost": ["$300 / month for dedicated server"],
@@ -16,6 +20,8 @@
     "sla": ["99.9% Uptime", "99.9% uptime", "Less than 100ms response time","Polled every 5 minutes", "Node telemetry exported to endpoints"]
   },
   {
+    "index": "3",
+    "type": "hobbyist",
     "desc": "Develop tools / applications necessary for the operation of the Infrastructure Builders Program.",
     "reward": ["Man Hours at $50/hour rate", "+40 Validator points"],
     "cost": ["Man Hours"],

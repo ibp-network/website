@@ -1,99 +1,139 @@
-import React, {useState, useEffect} from 'react'
-import Button from './Button'
+import React, {useState, useEffect, useRef} from 'react'
+
 import {Link} from "react-router-dom";
+import {MenuItem} from './TextComponents'
 
 
 export default function Hamburger(){
   const [wikiLink, setLink] = useState('https://wiki.dotters.network/');
+  var inputRef = useRef();
 
   function displayChange(){
-    if(display == 'hide'){
+    if(display === 'hide'){
+      inputRef.current.checked = true;
       changeDisplay('show');
     }
     else{
+      inputRef.current.checked = false;
       changeDisplay('hide');
     }
   }
+
   useEffect(() => {
     const url = window.location.href;
-    if(url == 'https://ibp.network/'){
+    if(url === 'https://ibp.network/'){
       setLink('https://wiki.ibp.network/');
     }
-  });
+
+
+
+  }, []);
 
     var [display, changeDisplay] = useState('hide');
+
+    function Item({text, link, isBig, target}){
+
+      if(isBig){
+        if(target){
+          return(
+            <a href={link} target='_blank' rel="noreferrer">
+              <MenuItem classes={'alt'} isBig={true} text={text}/>
+            </a>
+          );
+        }
+
+        return(
+        <div>
+          <Link to={link}>
+          <MenuItem classes={'alt'} isBig={true} text={text}/>
+          </Link>
+        </div>);
+
+      }
+      if(target){
+        return(
+          <a href={link} target='_blank' rel="noreferrer">
+            <MenuItem classes={'alt'} text={text}/>
+          </a>
+        );
+      }
+      return(
+      <div>
+        <Link to={link}>
+          <MenuItem classes={'alt'} text={text}/>
+        </Link>
+      </div>
+    );
+  }
+
     return(
       <>
-        <div onClick={() =>{
-          displayChange()
-        }} className={`hamburger-container right-align ${display}`}>
-        <img src="img/hamburger.svg"/>
+      <div className={'header-container'} style={{mixBlendMode: 'difference'}}>
+          <Link to={'/'}>
+            <div onClick={() => {
+            if (display === 'show'){
+              inputRef.current.checked = false;
+              changeDisplay('hide');
+            }}} className={'home-icon'} >
+              <h5 >ibp</h5>
+            </div>
+          </Link>
+
+          <div className={'right-align'} onClick={() =>{
+            displayChange()
+          }}>
+
+            	<div className="menu-icon" >
+            		<input ref={inputRef} className="menu-icon__cheeckbox" type="checkbox" />
+            		<div>
+            			<span></span>
+            			<span></span>
+            		</div>
+            	</div>
+
+          </div>
         </div>
 
-        <div className={`big-menu-container col center ${display}`}>
+        <div className={`big-menu-container col  ${display}`}>
 
-          <div className={'flex center col'}>
-            <div onClick={() => {
-              displayChange()
-            }}>
-              <Link to={'/'}><h3>Home</h3></Link>
+          <div className={'flex center row'}>
+
+            <div className={'flex left-align col'}>
+              <div onClick={() => displayChange()}>
+                <Item text='Contact' target={'_blank'} link='https://matrix.to/#/!tNVRcjndUHhSDzCKFF:matrix.org?via=parity.io&via=matrix.org&via=matrix.parity.io' isBig={true}/>
+              </div>
+
+              <div onClick={() => displayChange()}>
+                <Item text='Our Impact' link='/map' isBig={true}/>
+              </div>
+
+              <div onClick={() => displayChange()}>
+                <Item text='Apply' link='https://forms.gle/dbsyK4KPEJ8N4Qmz5' target='_blank' isBig={true}/>
+              </div>
+
             </div>
 
+            <div className={'flex right-align col'}>
+              <div onClick={() => displayChange()}>
+                <Item text='Member Rules' link='/rules'/>
+              </div>
 
-            <div onClick={() => {
-              displayChange()
-            }}>
-              <Link to={'/rules'}><h3>Rules</h3></Link>
+              <div onClick={() => displayChange()}>
+                <Item text='Service Monitor' target={'_blank'} link='https://monitor.dotters.network/'/>
+              </div>
+
+              <div onClick={() => displayChange()}>
+                <Item text='The Builders' link='/builders'/>
+              </div>
+
+              <div onClick={() => displayChange()}>
+                <Item text='The Wiki' target={'_blank'} link={wikiLink}/>
+              </div>
             </div>
-
-            <div onClick={() => {
-              displayChange()
-            }}>
-              <Link to={'/builders'}><h3>Builders</h3></Link>
-            </div>
-
-            <div onClick={() => {
-              displayChange()
-            }}>
-              <Link to={'/comingsoon'}><h3>Map</h3></Link>
-            </div>
-
-            <br/>
-            <a href='https://forms.gle/dbsyK4KPEJ8N4Qmz5' target='_blank'><h3>Apply</h3></a>
-            <br/>
-
-            <a href='https://monitor.dotters.network/' target='_blank'><h3>Monitor</h3></a>
-
-            <br/>
-            <a href={wikiLink} target='_blank'><h3>Wiki</h3></a>
-
-            <div onClick={() => {
-              displayChange()
-            }} className={`flex center close`} style={{marginTop: '2rem'}}>
-
-
-              <h4>Close&nbsp;</h4>
-              <h4 className={'flex center'} style={{padding:'0.25rem'}}>&nbsp;X</h4>
-            </div>
-
-
           </div>
 
         </div>
 
       </>
     )
-}
-
-function Item({name, link, changeDisplay, display}){
-
-  return(
-  <div onClick={() => {
-    if(display == 'hide'){
-      changeDisplay('show');
-    }
-    else{
-      changeDisplay('hide');
-    }
-  }}><Link to={link}><h3>{name}</h3></Link></div>)
 }

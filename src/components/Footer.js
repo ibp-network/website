@@ -1,75 +1,40 @@
-import React from 'react';
-import {Link} from "react-router-dom";
-import {useState, useEffect} from 'react';
+import React from 'react'
+import {MenuItem} from './TextComponents'
+import {useState, useEffect} from 'react'
 
-
-export default function Footer() {
+export default function Footer(){
   const [wikiLink, setLink] = useState('https://wiki.dotters.network/');
   useEffect(() => {
     const url = window.location.href;
-    if(url == 'https://ibp.network/'){
+    if(url === 'https://ibp.network/'){
       setLink('https://wiki.ibp.network/');
     }
-  });
+  }, []);
 
   return(
+  <footer className={'row'} style={{alignItems: 'center'}}>
+    <div style={{marginTop: '2rem'}}>
+      <MenuItem text='Get in touch'
+                link={'https://matrix.to/#/!tNVRcjndUHhSDzCKFF:matrix.org?via=parity.io&via=matrix.org&via=matrix.parity.io'}/>
 
-      <footer>
-        <div className="footer-pair">
-          <FooterItem name="Home" link="/"/>
-          <FooterItem name="Rules" link="/rules"/>
+      <MenuItem text='Join the IBP'
+                link={'https://docs.google.com/forms/u/3/d/e/1FAIpQLSdhCFsscVz66ZocyKfPQzmsmoR9Y_ZlfGGyAUBJ6ThZDS8hRQ/viewform?usp=send_form'}/>
+
+      <MenuItem text='Explore the wiki'
+                link={wikiLink}/>
+    </div>
+
+    <div className={'inline-flex center right-align'} style={{height: '100%'}}>
+      <div className={'flex col footer-icons'} style={{marginTop: '2rem'}}>
+        <div>
+          <img className={'icon-large'} src="/img/builder-icons/DBSnapshot-dark.svg" alt='db snapshot svg'/>
+          <img className={'icon-large'} src="/img/builder-icons/Bootnodes-dark.svg" alt='bootnodes svg'/>
+          <img className={'icon-large'} src="/img/builder-icons/RPC-dark.svg" alt='rpc svg'/>
         </div>
 
-        <div className="footer-pair">
-          <FooterItem name="Apply" link='https://forms.gle/dbsyK4KPEJ8N4Qmz5' target='_blank'/>
-          <FooterItem name="Builders" link='/builders' />
-        </div>
-
-        <div className="footer-pair">
-          <FooterItem name="Map" link='/map'/>
-          <FooterItem name="Health" link='https://monitor.dotters.network/' target='_blank' />
-        </div>
-
-        <div className="footer-pair">
-          <FooterItem name="wiki" link={wikiLink} target='_blank'/>
-        </div>
-
-      </footer>
-
-  )
-}
-
-
-function FooterItem({name, link, target}){
-  var destination = link;
-  if(link == null){
-    destination = "comingsoon";
-  }
-  if(target != null){
-
-    return(
-      <a href={link} target={target}>
-        <div className="footer-item">
-            <div className="footer-indicator">
-              <h3 className="arrow-up dark">&#60; &nbsp;</h3>
-              <h3 className="dark">{name[0]}</h3>
-            </div>
-
-            <h3 className="footer-text">{name}</h3>
-          </div>
-        </a>
-      );
-  }
-  return(
-    <Link to={destination}>
-      <div className="footer-item">
-          <div className="footer-indicator">
-            <h3 className="arrow-up dark">&#60; &nbsp;</h3>
-            <h3 className="dark">{name[0]}</h3>
-          </div>
-
-          <h3 className="footer-text">{name}</h3>
-        </div>
-      </Link>
-  )
+        <p className='label' style={{opacity: '0.5', width: '50%'}}>infrastructure services that are decentralized</p>
+      </div>
+    </div>
+  </footer>
+);
 }

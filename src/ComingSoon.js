@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
-import Button from './components/Button'
+import React from 'react'
 
 
 export default function ComingSoon() {
+  document.title = 'IBP | Coming Soon...'
   return(
   <>
       <div className={'container flex center'}>

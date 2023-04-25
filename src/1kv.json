@@ -1,11 +1,15 @@
 [
 	{
+		"index": "1",
+		"type": "prereq",
 		"desc": "Launch 2 KSM Validators.",
 		"reward": ["15% staking fee"],
 		"cost": ["$300 / month"],
 		"req": ["Apply to the 1000 Validators Program", "Minimum 20 KSM (2 validators * 10 KSM) self-bond"]
 	},
 	{
+		"index": "2",
+		"type": "prereq",
 		"desc": "Launch 1 DOT Validator.",
 		"reward": ["5% staking fee"],
 		"cost": ["$150 / month"],

@@ -2,20 +2,30 @@ import React from 'react'
 import {Link} from "react-router-dom";
 
 
-export default function Button({content, icon, link, target}) {
+export default function Button({content, icon, link, target, isLight}) {
   var iconComponent;
   var text;
   var destination;
+  var light;
+
+  if(isLight){
+    light = 'alt';
+  }
   destination = link;
   if(link == null){
     destination = 'ComingSoon';
   }
   if(icon != null){
-     iconComponent = <div style={{padding: '0.5rem'}} className={'button'}> <img style={{height: '2rem'}} src={`/img/${icon}`}/> </div>;
+    iconComponent = <div className={`button ${light}`}> <img style={{height: '2rem'}} src={`/img/${icon}`} alt='icon'/> </div>;
   }
   else{
-    text = <div className={"button"}><h4 className={"alt"}>{content}</h4>  </div>;
+    text =
+    <div className={`flex button ${light}`} style={{justifyContent: 'center'}}>
+        <h4>{content}</h4>
+    </div>;
   }
+
+  //Returns
   if(target != null){
     return(
       <a href={link} target={target}>
@@ -30,10 +40,10 @@ export default function Button({content, icon, link, target}) {
     <Link to={destination}>
 
         <div>
-            {text}
-            {iconComponent}
+          {text}
+          {iconComponent}
         </div>
-  
+
     </Link>
   )
 }

@@ -10,7 +10,7 @@ var markerData = [];
 
 //Parameters for map zoom
 const maxZoom = 4;
-const minZoom = 2;
+const minZoom = 3;
 
 for(var i = 0; i < memberKeys.length; i++){
 
@@ -45,12 +45,6 @@ for(var i = 0; i < memberKeys.length; i++){
 
 }
 
-/*
-  //TEST NODE IN CHICAGO TO CHECK DISTANCE ACCURACY
-  markerData.push({name: 'TEST', website:'', logo: '', level: 1, address: 0, member: "PRO", status: 'ONLINE'})
-  locations.push({lat: 41.8781, lng: -87.6298, count: 6});
-*/
-
 //Object storing data of locations of each node
 var locationData = {
   data: locations
@@ -72,8 +66,12 @@ var map = new L.Map('map', {
   preferCanvas: true,
   maxBounds: L.latLngBounds(L.latLng(90, -200), L.latLng(-90, 200)),
   worldCopyJump: false,
-  maxBoundsViscosity: 1
+  maxBoundsViscosity: 1,
+  zoomControl: false
 });
+
+var zoom  = L.control.zoom({position: 'bottomright'});
+zoom.addTo(map);
 
 //Configuration of the heatmap settings.
 var heatmapCfg = {
@@ -232,23 +230,3 @@ function Get(url){
 }
 
 L.control.scale().addTo(map);
-
-// Add custom heatbar control to the map
-L.Control.Heatbar = L.Control.extend({
-  onAdd: function() {
-    var container = L.DomUtil.create('div', 'heatbar');
-    container.innerHTML = `
-      <div class="heatbar-tick">0 <span class='ms'>ms</span></div>
-      <div class="heatbar-tick">25</div>
-      <div class="heatbar-tick">50</div>
-      <div class="heatbar-tick">75</div>
-      <div class="heatbar-tick">100 <span class='ms'>ms</span></div>
-    `;
-    return container;
-  }
-});
-L.control.heatbar = function(opts) {
-  return new L.Control.Heatbar(opts);
-};
-
-L.control.heatbar({ position: 'topright' }).addTo(map);

@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react'
-import Button from './components/Button'
-import builders from './members.json'
+import React from 'react'
+import {H1, Cycle} from './components/TextComponents'
 import curators from './curators.json'
 
 
 export default function Builders(){
+  document.title = 'IBP | Meet the Builders'
   var proJson = JSON.parse(Get('https://raw.githubusercontent.com/ibp-network/config/main/members.json'));
   var memberKeys = Object.entries(proJson.members);
   var members = [];
@@ -13,7 +13,6 @@ export default function Builders(){
     members.push(memberKeys[i][1]);
   }
 
-  console.log(members);
   var proBuilders = [];
   var adminCurators = [];
 
@@ -22,23 +21,33 @@ export default function Builders(){
 
   return(
     <>
-    <div className="flex col center" style={{marginTop:'10%', marginBottom: '6rem'}}>
-      <div className="flex col center" style={{width: '32rem'}}>
-        <h1>Meet the <span className="alt">Curators!</span></h1>
-        <p style={{textAlign: 'center'}}> Administrative Curators take oversight of the Infrastructure Builders Program, ensuring the health of the program.</p>
-      </div>
-      <div className="flex center card-container">
-        {adminCurators}
-      </div>
-    </div>
-
-    <div className="flex col center" style={{marginTop:'10%', marginBottom: '6rem'}}>
-      <div className="flex col center" style={{width: '32rem'}}>
-        <h1>Meet the <span className="alt">Builders!</span></h1>
-        <p style={{textAlign: 'center'}}>The program is currently in proof-of-concept as we aim to validate the network design and reference hardware</p>
-      </div>
-      <div className="flex center card-container">
-        {proBuilders}
+    <div style={{ backgroundColor: '#f4f4f4'}}>
+      <div className="flex col center" style={{marginTop:'10%'}}>
+        <div className="flex col center" >
+          <div id="builder-headline">
+            <H1 classes={'alt'} id={'builder-tagline'} text={'united by continents, together we empower success'}/>
+          </div>
+          <div className={'flex col center'} style={{backgroundColor: '#ffffff', marginTop: '12%', paddingBottom: '6%'}}>
+            <img style={{width: '60%', top: '-3rem', position: 'relative'}} src='/img/teamwork.jpg' alt='teamwork.jpg'/>
+            <div style={{width: '30rem'}}>
+              <h3 className='alt'> Our mission is simple. </h3>
+              <br/>
+              <p className='alt'> to bring together an exceptional team of thinkers, makers and changers with ambitious project starters, to provide quality infrastructure services, to bring to life decentralized apps.</p>
+              <br/>
+              <p className='alt'> we provide infrastructure services that are
+              <Cycle text={['decentralized', 'autonomous', 'powerful', 'reliable']} classes='alt'target={'tagline-3'}/>
+              .&nbsp;let us provide for you.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="flex col center" style={{width: '100%', backgroundColor: '#f4f4f4', padding: '6% 12% 12% 12%'}} >
+          <p className='alt'> - meet the builders - </p>
+          <br/><br/>
+          <div className="flex center card-container">
+            {proBuilders}
+          </div>
+        </div>
       </div>
     </div>
     </>
@@ -47,14 +56,17 @@ export default function Builders(){
 
 function append(array, json){
   for(var i = 0; i < json.length; i++){
-    var membership = '';
-    if(json[i].membership == 'professional') membership = 'PRO'
+    var logo = json[i].logo;
+
+    if(json[i].logo.length <= 0){
+      logo = '/img/default-logo-2.jpg';
+    }
     array.push(<BuilderCard name={json[i].name}
-                            level={membership + ' ' + json[i].current_level}
+                            level={json[i].current_level}
                             element={json[i].element}
-                            icon={json[i].logo}
-                            url={json[i].website}
-                            org={json[i].website}/>);
+                            logo={logo}
+                            website={json[i].website}
+                          />);
   }
 }
 
@@ -66,20 +78,20 @@ function Get(url){
     return Httpreq.responseText;
 }
 
-function BuilderCard({name, level, element, icon, org, url}){
+
+function BuilderCard({logo, name, level, element, website}) {
   return(
-    <div className="builder-card-container flex center row">
-      <div className="builder-icon" style={{backgroundImage: `url(${icon})`}}></div>
-      <div>
-        <h3>{name}</h3>
-        <a href={url} target="_blank">
-          <p>{org}</p>
-        </a>
-        <p>Level: <span className={'alt'}>{level}</span></p>
-        <a className="link" href={`https://matrix.to/#/${element}`} target='_blank'>
-          <p>{element}</p>
-        </a>
-      </div>
-    </div>
-  )
+  <div className={'flex col image-container'} style={{width: '32vmin', marginRight: '4vmin', marginBottom: '4vmin'}}>
+            <img className="image" src={logo} draggable="false" alt={`${name}-logo`} />
+            <div className='flex row' style={{marginTop: '1rem'}}>
+              <h2 className='alt'>{name}</h2>
+              <a style={{marginLeft: '0.5rem'}} href={website} target='_blank' rel="noreferrer">
+                <img style={{width: '1rem'}} src='/img/launch-icon.svg' alt={`${name}-website`}/>
+              </a>
+            </div>
+            <div className='flex row'>
+              <p className='alt label'>level&nbsp;{level} </p>
+              <p className='alt label' style={{marginLeft: '1rem'}}>pro builder</p>
+            </div>
+          </div>);
 }

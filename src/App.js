@@ -1,25 +1,19 @@
 import React from 'react'
-import {useEffect } from 'react'
-import Footer from './components/Footer'
+import Header from './components/Header'
 import Home from './Home'
 import Rules from './Rules'
 import Builders from './Builders'
 import ComingSoon from './ComingSoon'
-import Hamburger from './components/Hamburger'
 import Map from './Map'
-
 import {Routes, Route} from "react-router-dom";
-
-
-
+import Footer from './components/Footer'
 
 
 function App() {
   return (
 
         <div className="wrapper">
-          <div id="CRT"></div>
-          <div id="noise"></div>
+          <Header/>
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/rules" element={<Rules/>}/>
@@ -27,8 +21,7 @@ function App() {
             <Route path="/comingsoon" element={<ComingSoon/>}/>
             <Route path="/map" element={<Map/>}/>
           </Routes>
-          <Hamburger/>
-          <Footer/>
+        <Footer/>
         </div>
 
   );
