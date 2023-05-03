@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import ReactFlow, { addEdge, applyEdgeChanges, applyNodeChanges } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { Handle, Position,
@@ -15,21 +15,21 @@ const hobby     = hobbyistMilestones;
 
 function setNodes(nodeList, edgeList, json, type){
 
-  var y = 0;
-  var x = 3;
+  var x = 0;
+  var y = 3;
   if(type === "hobbyist"){
-    y = 1000;
+    x = 1000;
   }
   else if(type === '1kv'){
-    y = 500;
-    x = 0;
+    x = 500;
+    y = 0;
   }
   for(var i = 0; i < json.length; i++){
-    var node = {id: '', type: 'textUpdater', position: {x: 0, y: y}, data:''};
+    var node = {id: '', type: 'textUpdater', position: {x: x, y: y}, data:''};
     var edge = {id: '', source: '', target: ''};
 
     node.id = type + "-node-" + (i + 1);
-    node.position.x = (i+x) * 400;
+    node.position.y = ((i+y) * 500);
     node.data = json[i];
     nodeList.push(node);
 
@@ -62,6 +62,7 @@ initialEdges.push({id: 'choose-edge-4', source: '1kv-node-2', animated: true, ta
 const nodeTypes = { textUpdater: TextUpdaterNode, singleNode: SingleNode };
 
 export default function Rules() {
+
   document.title = 'IBP | Member Milestones';
 
   const [nodes, setNodes] = useState(initialNodes);
@@ -81,7 +82,7 @@ export default function Rules() {
   );
 
   return (
-    <div className={'inline-flex'} style={{overflow: 'none'}}>
+    <div className={'inline-flex'} style={{overflow: 'hidden'}}>
       <div style={{ width: '100vw', height: '100vh'}}>
         <ReactFlow
           nodes={nodes}
@@ -105,11 +106,11 @@ export default function Rules() {
 function SingleNode({isConnectable}){
   return(
     <>
-    <div className="single-node">
-    <Handle type="source" position={Position.Right} isConnectable={isConnectable} />
-    <div style={{display: 'block', width: '1px', height: '1px'}}/>
-    <Handle type="target" position={Position.Left} isConnectable={isConnectable} />
-    </div>
+      <div className="single-node">
+        <Handle type="source" position={Position.Right} isConnectable={isConnectable} />
+        <div style={{display: 'block', width: '1px', height: '1px'}}/>
+        <Handle type="target" position={Position.Left} isConnectable={isConnectable} />
+      </div>
     </>
   )
 }
@@ -121,7 +122,6 @@ function TextUpdaterNode({ data, isConnectable }) {
   var tasks = [];
   var taskRewards = [];
   var taskBlocks = [];
-
 
   if(data.tasks){
     for(var i = 0; i < data.tasks.length; i++){
@@ -143,9 +143,10 @@ function TextUpdaterNode({ data, isConnectable }) {
       changeText('COLLAPSE');
     }
   }
+
   return (
     <div className="text-updater-node">
-      <Handle type="source" position={Position.Right} isConnectable={isConnectable} />
+      <Handle type="source" position={Position.Bottom} isConnectable={isConnectable} />
       <div className='node node'>
 
         <div className='flex col center node-block'>
@@ -176,7 +177,7 @@ function TextUpdaterNode({ data, isConnectable }) {
       </div>
       <Handle
         type="target"
-        position={Position.Left}
+        position={Position.Top}
         id="a"
       />
 

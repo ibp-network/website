@@ -234,7 +234,7 @@ function Services({reference}){
           <div>
             <h6>worldwide service ––</h6>
             <p className={'alt'}>
-              covering all regions around the world, there surely is a node practically at your doorstep.
+              leverage the power of our globally distributed nodes, providing comprehensive coverage across continents.
             </p>
           </div>
         </div>
@@ -251,8 +251,8 @@ function Services({reference}){
 function Clients({reference}){
   return(
     <div className={'flex mini-container center col'} style={{backgroundColor: '#D9D9D9',  position: 'relative'}}>
-      <p className={'alt'}>- we are building for -</p>
-      <div ref={reference} className={'client-container flex row'}>
+      <p ref={reference}  className={'alt'}>- we are building for -</p>
+      <div  className={'client-container flex row'}>
 
         <div className={'client icon'}>
           <img src='/img/client-icons/Encointer.svg' alt='Encointer'/>
@@ -281,7 +281,7 @@ function Clients({reference}){
 
 function Questions(){
   return(
-    <div className='questions-container container flex' style={{backgroundColor: '#f4f4f4',  position: 'relative'}}>
+    <div className='questions-container flex' style={{backgroundColor: '#f4f4f4',  position: 'relative'}}>
       <div className='flex questions-header' style={{marginTop: '5rem', marginLeft: '10vw'}}>
         <div className='flex'>
           <H1 id="haveQuestions" classes='alt' text='have questions?'/>
@@ -293,9 +293,7 @@ function Questions(){
         </div>
       </div>
 
-      <div id={'element-banner'}>
-        <img src='/img/Element.png' alt='Element.png'/>
-      </div>
+
     </div>
   );
 

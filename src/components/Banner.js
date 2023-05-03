@@ -2,6 +2,7 @@ import React from 'react'
 import Button from './Button'
 import {Cycle} from './TextComponents'
 import {useEffect, useRef} from 'react'
+import Video from '../assets/videos/SpinningEarth-Compressed.mp4'
 
 export default function Banner({source, width, height}){
   var videoRef = useRef();
@@ -24,10 +25,11 @@ export default function Banner({source, width, height}){
     observer.observe(videoRef.current);
     return () => observer.disconnect();
   }, []);
+
   return(
     <>
         <div style={{width: '100%', height: height, zIndex: 2, overflow: 'none'}}>
-            <video ref={videoRef} width={width} height={height} className={'parallax-image'} alt='worldwide nodes'  src={'./video/SpinningEarth.mp4'} loop muted></video>
+            <video ref={videoRef} width={width} height={height} className={'parallax-image'} alt='worldwide nodes'  src={Video} loop muted></video>
           <div className='banner-gradient gradient flex row' style={{alignItems: 'center', width: width, height: '20%'}}>
 
               <p style={{marginRight: '2rem'}}>we are found in regions around<br/> the globe, with nodes from<br/>
@@ -39,8 +41,6 @@ export default function Banner({source, width, height}){
 
 
               <Button content={'our impact'} link={'/map'}/>
-
-
           </div>
         </div>
     </>

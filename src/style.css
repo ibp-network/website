@@ -926,6 +926,12 @@ h1.white, h2.white, h3.white, h4.white{
 }
 
 .questions-container{
+  box-sizing: border-box;
+  padding: 0vw 12vw 0vw 12vw;
+  width: 100%;
+  height: 50vh;
+  min-height: 50vh;
+  display: flex;
   flex-direction: column;
 }
 .questions-container > .questions-header > div {
@@ -1147,6 +1153,9 @@ h1.white, h2.white, h3.white, h4.white{
 }
 
 @media only screen and (max-width: 900px) {
+  h1{
+    font-size: 3.5rem;
+  }
   html{
     font-size:12px;
   }
