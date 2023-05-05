@@ -1,9 +1,7 @@
 import { useCallback, useState, useEffect } from 'react';
 import ReactFlow, { addEdge, applyEdgeChanges, applyNodeChanges } from 'reactflow';
 import 'reactflow/dist/style.css';
-import { Handle, Position,
-  Controls,
-  Background } from 'reactflow';
+import { Handle, Position, Controls, Background } from 'reactflow';
 import proMilestones from './promilestones.json'
 import hobbyistMilestones from './hobbyistmilestones.json'
 import thousandMilestones from './1kv.json'
@@ -18,25 +16,24 @@ function setNodes(nodeList, edgeList, json, type){
   var x = 0;
   var y = 3;
   if(type === "hobbyist"){
-    x = 1000;
+    y = 1250;
   }
   else if(type === '1kv'){
-    x = 500;
-    y = 0;
+    y = 600;
+    x = -3;
   }
   for(var i = 0; i < json.length; i++){
     var node = {id: '', type: 'textUpdater', position: {x: x, y: y}, data:''};
     var edge = {id: '', source: '', target: ''};
 
     node.id = type + "-node-" + (i + 1);
-    node.position.y = ((i+y) * 500);
+    node.position.x = ((i+x) * 400);
     node.data = json[i];
     nodeList.push(node);
 
-    edge.id = type + "-edge-" + (i+1);
+    edge.id = type + "-edge-" + (i + 1);
     edge.source = node.id;
     edge.target = type + '-node-' + (i + 2);
-
     edgeList.push(edge);
 
   }
@@ -115,8 +112,8 @@ function SingleNode({isConnectable}){
   )
 }
 function TextUpdaterNode({ data, isConnectable }) {
-  var [display, changeDisplay] = useState('hide');
-  var [collapseText, changeText] = useState('EXPAND');
+  var [display, changeDisplay] = useState('show');
+  var [collapseText, changeText] = useState('COLLAPSE');
 
   //EXTRAS
   var tasks = [];
@@ -146,7 +143,7 @@ function TextUpdaterNode({ data, isConnectable }) {
 
   return (
     <div className="text-updater-node">
-      <Handle type="source" position={Position.Bottom} isConnectable={isConnectable} />
+      <Handle type="source" position={Position.Right} isConnectable={isConnectable} />
       <div className='node node'>
 
         <div className='flex col center node-block'>
@@ -177,7 +174,7 @@ function TextUpdaterNode({ data, isConnectable }) {
       </div>
       <Handle
         type="target"
-        position={Position.Top}
+        position={Position.Left}
         id="a"
       />
 

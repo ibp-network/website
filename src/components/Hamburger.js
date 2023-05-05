@@ -115,15 +115,15 @@ export default function Hamburger(){
 
             <div className={'flex right-align col'}>
               <div onClick={() => displayChange()}>
+                <Item text='The Builders' link='/builders'/>
+              </div>
+
+              <div onClick={() => displayChange()}>
                 <Item text='Member Rules' link='/rules'/>
               </div>
 
               <div onClick={() => displayChange()}>
                 <Item text='Service Monitor' target={'_blank'} link='https://monitor.dotters.network/'/>
-              </div>
-
-              <div onClick={() => displayChange()}>
-                <Item text='The Builders' link='/builders'/>
               </div>
 
               <div onClick={() => displayChange()}>

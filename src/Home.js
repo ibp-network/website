@@ -103,6 +103,7 @@ export default function Home() {
             <Box key={i} logo={json[i].logo} name={json[i].name} level={json[i].level} website={json[i].website}/>
           );
       }
+      arr = insertionSort(shuffle(arr));
 
     }
 
@@ -121,6 +122,9 @@ export default function Home() {
     </>
   );
 }
+
+
+
 
 function Box({logo, name, level, website}) {
   return(
@@ -297,4 +301,40 @@ function Questions(){
     </div>
   );
 
+}
+
+
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
+
+function insertionSort(array) {
+    let n = array.length;
+        for (let i = 1; i < n; i++) {
+            // Choosing the first element in our unsorted subarray
+            let current = array[i];
+            // The last element of our sorted subarray
+            let j = i-1;
+            while ((j > -1) && (current.props.level > array[j].props.level)) {
+                array[j+1] = array[j];
+                j--;
+            }
+            array[j+1] = current;
+        }
+    return array;
 }

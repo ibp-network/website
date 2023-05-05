@@ -553,6 +553,7 @@ a:hover > h4{
   display: inline-flex;
   border: 1px solid;
   border-color: var(--light-grey);
+  background-color: var(--white);
   pointer-events: auto;
   border-radius: 1rem;
   margin-right: 1rem;

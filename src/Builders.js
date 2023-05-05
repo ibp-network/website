@@ -1,7 +1,5 @@
 import React from 'react'
 import {H1, Cycle} from './components/TextComponents'
-import curators from './curators.json'
-
 
 export default function Builders(){
   document.title = 'IBP | Meet the Builders'
@@ -17,7 +15,6 @@ export default function Builders(){
   var adminCurators = [];
 
   append(proBuilders, members);
-  append(adminCurators, curators);
 
   return(
     <>
@@ -55,9 +52,9 @@ export default function Builders(){
 }
 
 function append(array, json){
+  json = insertionSort(shuffle(json));
   for(var i = 0; i < json.length; i++){
     var logo = json[i].logo;
-
     if(json[i].logo.length <= 0){
       logo = '/img/default-logo-2.jpg';
     }
@@ -94,4 +91,40 @@ function BuilderCard({logo, name, level, element, website}) {
               <p className='alt label' style={{marginLeft: '1rem'}}>pro builder</p>
             </div>
           </div>);
+}
+
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
+
+function insertionSort(array) {
+    let n = array.length;
+        for (let i = 1; i < n; i++) {
+            // Choosing the first element in our unsorted subarray
+            let current = array[i];
+            // The last element of our sorted subarray
+            let j = i-1;
+
+            while ((j > -1) && (current.current_level > array[j].current_level)) {
+                array[j+1] = array[j];
+                j--;
+            }
+            array[j+1] = current;
+        }
+    return array;
 }

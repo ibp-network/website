@@ -7,9 +7,26 @@ import ComingSoon from './ComingSoon'
 import Map from './Map'
 import {Routes, Route} from "react-router-dom";
 import Footer from './components/Footer'
+import {useState, useEffect} from 'react'
 
 
 function App() {
+  var [display, changeDisplay] = useState('block');
+
+  function displayFooter(){
+    var base = window.location.origin;
+    if(window.location.href === base + '/map'){
+      changeDisplay('none');
+    }
+    else{
+      changeDisplay('block');
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('click', (e) => { displayFooter()});
+  });
+
   return (
 
         <div className="wrapper">
@@ -21,10 +38,14 @@ function App() {
             <Route path="/comingsoon" element={<ComingSoon/>}/>
             <Route path="/map" element={<Map/>}/>
           </Routes>
-        <Footer/>
+          <div style={{display: `${display}`}}>
+            <Footer/>
+          </div>
         </div>
 
   );
 }
+
+
 
 export default App;
