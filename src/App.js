@@ -11,21 +11,7 @@ import {useState, useEffect} from 'react'
 
 
 function App() {
-  var [display, changeDisplay] = useState('block');
 
-  function displayFooter(){
-    var base = window.location.origin;
-    if(window.location.href === base + '/map'){
-      changeDisplay('none');
-    }
-    else{
-      changeDisplay('block');
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('click', (e) => { displayFooter()});
-  });
 
   return (
 
@@ -38,9 +24,9 @@ function App() {
             <Route path="/comingsoon" element={<ComingSoon/>}/>
             <Route path="/map" element={<Map/>}/>
           </Routes>
-          <div style={{display: `${display}`}}>
+
             <Footer/>
-          </div>
+    
         </div>
 
   );

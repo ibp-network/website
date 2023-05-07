@@ -444,6 +444,7 @@ a:hover > h4{
     padding: 0rem 12vw 0rem 12vw;
     align-items: center;
     z-index: 9999;
+    mix-blend-mode: difference;
 }
 #builder-headline{
   width: 50rem;
@@ -729,8 +730,8 @@ a.dropdown-item:hover > h4, a.dropdown-item:hover > p{
 }
 #hero-line{
   margin-top: 5rem;
-  width: 37rem;
-  max-width: 37rem;
+  width: 40rem;
+  max-width: 40rem;
   margin-left: 2rem;
   margin-right: 1rem;
 }
@@ -871,6 +872,8 @@ h1.white, h2.white, h3.white, h4.white{
 	 width: 22px;
 	 height: 12px;
 	 cursor: pointer;
+
+   padding: 0.5rem;
 }
  .menu-icon .menu-icon__cheeckbox {
 	 display: block;
@@ -891,12 +894,13 @@ h1.white, h2.white, h3.white, h4.white{
 	 bottom: 0;
 	 width: 22px;
 	 height: 12px;
+
 }
  .menu-icon span {
 	 position: absolute;
 	 display: block;
 	 width: 100%;
-	 height: 2px;
+	 height: 3px;
 	 background-color: var(--white);
 	 border-radius: 1px;
 	 transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
@@ -909,11 +913,11 @@ h1.white, h2.white, h3.white, h4.white{
 }
  .menu-icon.active span:first-of-type, .menu-icon .menu-icon__cheeckbox:checked + div span:first-of-type {
 	 transform: rotate(45deg);
-	 top: 5px;
+	 top: 4.5px;
 }
  .menu-icon.active span:last-of-type, .menu-icon .menu-icon__cheeckbox:checked + div span:last-of-type {
 	 transform: rotate(-45deg);
-	 bottom: 5px;
+	 bottom: 4.5px;
 }
  .menu-icon.active:hover span:first-of-type, .menu-icon.active:hover span:last-of-type, .menu-icon:hover .menu-icon__cheeckbox:checked + div span:first-of-type, .menu-icon:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
 	 width: 22px;
@@ -952,6 +956,7 @@ h1.white, h2.white, h3.white, h4.white{
 .big-menu-container{
   box-sizing: border-box;
   position: fixed;
+  flex-direction: column;
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -1166,7 +1171,12 @@ h1.white, h2.white, h3.white, h4.white{
   }
   .big-menu-container{
     padding: 0vw 6vw 0vw 0vw;
+    flex-direction: row;
   }
+  .big-menu-container > div{
+    flex-direction: column;
+  }
+  
   .milestone-container{
     width: 80%;
   }
@@ -1373,7 +1383,9 @@ h2.prereq{
   color: var(--white);
 }
 
-
+path{
+  stroke:red;
+}
 
 .node-description{
   width: 100%;

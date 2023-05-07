@@ -157,7 +157,7 @@ function Hero() {
             <img className={'wires'} src="img/Group 3.svg" alt='wires'/>
 
             <div className={'flex col'}>
-              <H1 id='hero-line' text='powering crypto from all around the world'/>
+              <H1 id='hero-line' text='powering dotsama from all around the world'/>
               <p id='hero-tag'>providing core infrastructure services that are <Cycle text={['decentralized', 'autonomous','impressive', 'dependable']} target='tagline-1'/></p>
             </div>
 

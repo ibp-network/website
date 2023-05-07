@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useRef} from 'react'
-
 import {Link} from "react-router-dom";
 import {MenuItem} from './TextComponents'
 
@@ -24,9 +23,6 @@ export default function Hamburger(){
     if(url === 'https://ibp.network/'){
       setLink('https://wiki.ibp.network/');
     }
-
-
-
   }, []);
 
     var [display, changeDisplay] = useState('hide');
@@ -68,7 +64,7 @@ export default function Hamburger(){
 
     return(
       <>
-      <div className={'header-container'} style={{mixBlendMode: 'difference'}}>
+      <div className={'header-container'} >
           <Link to={'/'}>
             <div onClick={() => {
             if (display === 'show'){
@@ -88,13 +84,14 @@ export default function Hamburger(){
             		<div>
             			<span></span>
             			<span></span>
+
             		</div>
             	</div>
 
           </div>
         </div>
 
-        <div className={`big-menu-container col  ${display}`}>
+        <div className={`big-menu-container   ${display}`}>
 
           <div className={'flex center row'}>
 
