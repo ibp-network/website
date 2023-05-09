@@ -93,7 +93,7 @@ export default function Hamburger(){
 
         <div className={`big-menu-container   ${display}`}>
 
-          <div className={'flex center row'}>
+          <div className={'flex center'}>
 
             <div className={'flex left-align col'}>
               <div onClick={() => displayChange()}>

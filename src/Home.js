@@ -233,7 +233,7 @@ function Services({reference}){
         <div className={'flex col'}>
         <div className={'service icon inline-flex col center'}>
           <img src='/img/DBSnapshot.svg' alt='db snapshot svg'/>
-          <p className={'alt label'}>DB snapshots</p>
+          <p className={'alt label'}>indexer nodes</p>
         </div>
           <div>
             <h6>worldwide service ––</h6>
@@ -308,7 +308,7 @@ function shuffle(array) {
   let currentIndex = array.length,  randomIndex;
 
   // While there remain elements to shuffle.
-  while (currentIndex != 0) {
+  while (currentIndex !== 0) {
 
     // Pick a remaining element.
     randomIndex = Math.floor(Math.random() * currentIndex);
