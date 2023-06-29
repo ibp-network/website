@@ -16,16 +16,37 @@ export default function Home() {
   async function setInfo(memberKeys){
     var data = [];
     for(var i = 0; i < memberKeys.length; i++){
-      var mData = {name: '', website:'', logo: 'logo', level: 1};
-      //Data needed for the popup of each marker, pushed onto markerData array
-      mData.name      = memberKeys[i][1].name;
-      mData.logo      = memberKeys[i][1].logo;
+      var mData = {name: '', website:'', logo: 'logo', level: 1, membership: ''};
 
-      if(mData.logo.length === 0){
-        mData.logo = '/img/default-logo-2.jpg'
+      //Data needed for the popup of each marker, pushed onto markerData array
+      if(memberKeys[i][1].hasOwnProperty('name')){
+        mData.name      = memberKeys[i][1].name;
       }
-      mData.level     = memberKeys[i][1].current_level;
-      mData.website   = memberKeys[i][1].website;
+
+      if(memberKeys[i][1].hasOwnProperty('membership')){
+        mData.membership = 'pro';
+        if(memberKeys[i][1].membership !== 'pro'){
+          mData.membership = 'hobbyist';
+        }
+      }
+
+      if(!memberKeys[i][1].hasOwnProperty('logo')){
+        mData.logo = '/img/default-logo-2.jpg';
+      }
+      else{
+        mData.logo      = memberKeys[i][1].logo;
+        if(memberKeys[i][1].logo.length === 0){
+          mData.logo = '/img/default-logo-2.jpg';
+        }
+      }
+
+      if(memberKeys[i][1].hasOwnProperty('current_level')){
+        mData.level     = memberKeys[1][1].current_level;
+      }
+
+      if(memberKeys[i][1].hasOwnProperty('website')){
+        mData.website   = memberKeys[1][1].website;
+      }
       data.push(mData);
     }
 
@@ -100,7 +121,7 @@ export default function Home() {
     if(!isLoading || json){
       for(var i = 0; i < json.length; i++){
           arr.push(
-            <Box key={i} logo={json[i].logo} name={json[i].name} level={json[i].level} website={json[i].website}/>
+            <Box key={i} logo={json[i].logo} name={json[i].name} level={json[i].level} website={json[i].website} membership={json[i].membership}/>
           );
       }
       arr = insertionSort(shuffle(arr));
@@ -126,7 +147,7 @@ export default function Home() {
 
 
 
-function Box({logo, name, level, website}) {
+function Box({logo, name, level, website, membership}) {
   return(
   <div className={'flex col image-container'} style={{width: '32vmin'}}>
             <img className="image" alt={`${name}-logo`} src={logo} draggable="false" />
@@ -138,7 +159,7 @@ function Box({logo, name, level, website}) {
             </div>
             <div className='flex row'>
               <p className='alt label'>LEVEL&nbsp;{level} </p>
-              <p className='alt label' style={{marginLeft: '1rem'}}>pro builder</p>
+              <p className='alt label' style={{marginLeft: '1rem'}}>{membership} builder</p>
             </div>
           </div>);
 }

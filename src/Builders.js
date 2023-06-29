@@ -52,19 +52,50 @@ export default function Builders(){
 
 function append(array, json){
   json = insertionSort(shuffle(json));
+  var object = {name: '', level: '', element: '', logo: '', website: '', membership: ''};
   for(var i = 0; i < json.length; i++){
-    var logo = json[i].logo;
-    if(json[i].logo.length <= 0){
-      logo = '/img/default-logo-2.jpg';
-    }
-    array.push(<BuilderCard name={json[i].name}
-                            level={json[i].current_level}
-                            element={json[i].element}
-                            logo={logo}
-                            website={json[i].website}
+      //Data needed for the popup of each marker, pushed onto markerData array
+      if(json[i].hasOwnProperty('name')){
+        object.name      = json[i].name;
+      }
+
+      if(json[i].hasOwnProperty('membership')){
+        object.membership = 'pro';
+        if(json[i].membership !== 'professional'){
+          object.membership = 'hobbyist';
+        }
+      }
+      if(!json[i].hasOwnProperty('element')){
+        object.element = json[i].element;
+      }
+      if(!json[i].hasOwnProperty('logo')){
+        object.logo = '/img/default-logo-2.jpg';
+      }
+      else{
+        object.logo      = json[i].logo;
+        if(json[i].logo.length === 0){
+          object.logo = '/img/default-logo-2.jpg';
+        }
+      }
+
+      if(json[i].hasOwnProperty('current_level')){
+        object.level     = json[i].current_level;
+      }
+
+      if(json[i].hasOwnProperty('website')){
+        object.website   = json[i].website;
+      }
+    
+    array.push(<BuilderCard name={object.name}
+                            level={object.level}
+                            element={object.element}
+                            logo={object.logo}
+                            website={object.website}
+                            membership={object.membership}
                           />);
+    }
   }
-}
+
 
 function Get(url){
     var Httpreq = new XMLHttpRequest(); // a new request
@@ -75,7 +106,7 @@ function Get(url){
 }
 
 
-function BuilderCard({logo, name, level, element, website}) {
+function BuilderCard({logo, name, level, element, website, membership}) {
   return(
   <div className={'flex col image-container'} style={{width: '32vmin', marginRight: '4vmin', marginBottom: '4vmin'}}>
             <img className="image" src={logo} draggable="false" alt={`${name}-logo`} />
@@ -87,7 +118,7 @@ function BuilderCard({logo, name, level, element, website}) {
             </div>
             <div className='flex row'>
               <p className='alt label'>level&nbsp;{level} </p>
-              <p className='alt label' style={{marginLeft: '1rem'}}>pro builder</p>
+              <p className='alt label' style={{marginLeft: '1rem'}}>{membership} builder</p>
             </div>
           </div>);
 }

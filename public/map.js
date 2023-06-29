@@ -45,6 +45,22 @@ for(var i = 0; i < memberKeys.length; i++){
 
 }
 
+var mData = {name: '', website:'', logo: 'logo', level: 1, address: 0, member: "PRO", status: 'ONLINE'};
+mData.name      = memberKeys[1][1].name;
+mData.logo      = memberKeys[1][1].logo;
+mData.level     = memberKeys[1][1].current_level;
+mData.address   = memberKeys[1][1].services_address;
+mData.website   = memberKeys[1][1].website;
+
+locations.push({lat: 15.8700, lng: 100.9925, count: 6});
+locations.push({lat: 19.0760, lng: 72.8777, count: 6});
+locations.push({lat: -40.9006, lng: 174.8860, count: 6});
+locations.push({lat: 34.0489, lng: -111.0937, count: 6});
+
+for(var i = 0; i < 4; i++){
+  markerData.push(mData);
+}
+
 //Object storing data of locations of each node
 var locationData = {
   data: locations
