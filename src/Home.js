@@ -41,11 +41,11 @@ export default function Home() {
       }
 
       if(memberKeys[i][1].hasOwnProperty('current_level')){
-        mData.level     = memberKeys[1][1].current_level;
+        mData.level     = memberKeys[i][1].current_level;
       }
 
       if(memberKeys[i][1].hasOwnProperty('website')){
-        mData.website   = memberKeys[1][1].website;
+        mData.website   = memberKeys[i][1].website;
       }
       data.push(mData);
     }

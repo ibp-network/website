@@ -61,7 +61,7 @@
 	{
 		"index": "5",
 		"type": "pro",
-		"desc": "Launch 1 RPC service node for all common goods parachains on all 3 relay networks. Currently there are 5 common goods parachains on Polkadot, Kusama, and Westend requiring a minimum of 5 full archive nodes. Members are required to join at least 2x GeoDNS groups and 2x Anycast groups.",
+		"desc": "Launch 2 RPC service nodes for all common goods parachains on all 3 relay networks. Currently there are 5 common goods parachains on Polkadot, Kusama, and Westend requiring a minimum of 5 full archive nodes. Members are required to join at least 2x GeoDNS groups and 2x Anycast groups.",
 		"reward": ["Payment varies depending on region served", "+30 validator points", "+30 validator points"],
 		"region": [["Africa : ", "$5,132.00"],["Asia : ", "$4,592.00"],["Central America : ", "$4,592.00"],["Europe : ", "$2,972.00"],["Middle East : ", "$3,512.00"],["North America : ", "$2,972.00"],["Oceania : ", "$4,862.00"],["South America : ", "$4,592.00"] ],
 		"cost": ["Milestone 4 - Pro", "$200 - $500 / month", "Hardware costs"],
@@ -77,14 +77,12 @@
 		"tasks": [
 			["Host / manage a GeoDNS group for RPC service and have the domain inserted into a PolkaJS wallet as an endpoint"],
 			["Host / Manage an Anycast group for RPC service and have the domain inserted into PolkaJS wallet as an endpoint"],
-			["Host / Manage a Snapshot service (Counts as joining a service from Milestone 6)"],
 			["Develop tools / applications necessary for the operation of the Infrastructure Builders Program."],
 			["Host telemetry tools / checks"]
 		],
 		"taskreward": [
 			["$600 / month", "$600 / month for man-hours", "+30 validator points"],
 			["$1,200 / month", "$600 / month for man-hours", "$600 per month for ARIN, RIPE, etc. fees", "+30 validator points"],
-			["$1,600 / month", "$800 / month for infrastructure costs", "$800 / month for man-hours", "+30 validator points"],
 			["Man hours at $50 / hour", "+30 validator points"],
 			["+30 validator points"]
 		]

@@ -2,8 +2,8 @@
   {
     "index": "1",
     "type": "hobbyist",
-		"desc": "Launch 2 full archive nodes for RPC endpoints (Polkadot, Kusama) and have them included in the Professional overflow RPC pool.",
-		"reward": ["+60 validator points"],
+		"desc": "Launch and operate a decentralized monitoring node.",
+		"reward": ["+60 validator points", "$100 / month"],
     "cost": ["$300 / month for dedicated server"],
 		"req": ["Obtain rank 25 in existing 1000 Validators Milestone 2", "Apply to the Infrastructure Builders Program - Hobbyist", "Members must sign and verify from their Polkadot address from existing 1000 Validators Milestone 2"],
 		"rankings": ["+1 rank for everyday where service meets Service Level Agreement.", "-7 rank for every 15 minutes where service is unresponsive", "-1 rank for every 15 minutes where response time is too high."],
