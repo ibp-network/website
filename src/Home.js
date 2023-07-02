@@ -25,7 +25,7 @@ export default function Home() {
 
       if(memberKeys[i][1].hasOwnProperty('membership')){
         mData.membership = 'pro';
-        if(memberKeys[i][1].membership !== 'pro'){
+        if(memberKeys[i][1].membership !== "professional"){
           mData.membership = 'hobbyist';
         }
       }
