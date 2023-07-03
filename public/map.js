@@ -11,15 +11,16 @@ var markerData = [];
 //Parameters for map zoom
 const maxZoom = 4;
 const minZoom = 3;
-
 for(var i = 0; i < memberKeys.length; i++){
 
-  //If latitude key contains no value, then builder has no node
-  if( memberKeys[i][1].latitude && memberKeys[i][1].membership !== "hobbyist"){
+  //If latitude key contains no value and builder is a hobbyist, then builder has no node
+  if( memberKeys[i][1].region !== "" && 
+      memberKeys[i][1].membership !== "hobbyist" && 
+    ( memberKeys[i][1].longitude !== "0" && memberKeys[i][1].latitude !== "0" ) && (memberKeys[i][1].longitude.length > 0 && memberKeys[i][1].latitude.length > 0)){
 
     //Syntax of each object pushed onto respective arrays
     var value = {lat: 0, lng: 0, count: 6};
-    var mData = {name: '', website:'', logo: 'logo', level: 1, address: 0, member: "PRO", status: 'ONLINE'};
+    var mData = {name: '', website: '', logo: 'logo', level: 1, address: 0, member: "PRO", status: 'ONLINE'};
 
     //Latitude and longitude parameters to be pushed onto locations array
     value.lat = parseFloat(memberKeys[i][1].latitude);
@@ -37,8 +38,7 @@ for(var i = 0; i < memberKeys.length; i++){
     mData.address   = memberKeys[i][1].services_address;
     mData.website   = memberKeys[i][1].website;
 
-    //If the member is a hobbyist member, then change to hobbyist
-    if(memberKeys[i][1].member == 'hobbyist') mData.member = 'HOBBYIST';
+
 
     //If status is inactive, show the node as offline
     if(memberKeys[i][1].active == "0") mData.status = 'OFFLINE';
@@ -48,19 +48,9 @@ for(var i = 0; i < memberKeys.length; i++){
     markerData.push(mData);
   }
 
+
 }
 
-var mData = {name: '', website:'', logo: 'logo', level: 1, address: 0, member: "PRO", status: 'ONLINE'};
-mData.name      = memberKeys[1][1].name;
-mData.logo      = memberKeys[1][1].logo;
-mData.level     = memberKeys[1][1].current_level;
-mData.address   = memberKeys[1][1].services_address;
-mData.website   = memberKeys[1][1].website;
-
-locations.push({lat: 15.8700, lng: 100.9925, count: 6});
-locations.push({lat: 19.0760, lng: 72.8777, count: 6});
-locations.push({lat: -40.9006, lng: 174.8860, count: 6});
-locations.push({lat: 34.0489, lng: -111.0937, count: 6});
 
 for(var i = 0; i < 4; i++){
   markerData.push(mData);
