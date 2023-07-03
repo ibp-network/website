@@ -15,7 +15,7 @@ const minZoom = 3;
 for(var i = 0; i < memberKeys.length; i++){
 
   //If latitude key contains no value, then builder has no node
-  if( memberKeys[i][1].latitude ){
+  if( memberKeys[i][1].latitude && memberKeys[i][1].membership !== "hobbyist"){
 
     //Syntax of each object pushed onto respective arrays
     var value = {lat: 0, lng: 0, count: 6};
@@ -27,7 +27,12 @@ for(var i = 0; i < memberKeys.length; i++){
 
     //Data needed for the popup of each marker, pushed onto markerData array
     mData.name      = memberKeys[i][1].name;
-    mData.logo      = memberKeys[i][1].logo;
+    if(memberKeys[i][1].logo === ""){
+      mData.logo = "/img/default-logo.png";
+    }
+    else{
+      mData.logo      = memberKeys[i][1].logo;
+    }
     mData.level     = memberKeys[i][1].current_level;
     mData.address   = memberKeys[i][1].services_address;
     mData.website   = memberKeys[i][1].website;
