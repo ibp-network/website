@@ -40,7 +40,7 @@ export default function Banner({source, width, height}){
 
 
 
-              <Button isLight={true} content={'our impact'} link={'/map'}/>
+              <Button isLight={true} content={'service map'} link={'/map'}/>
           </div>
         </div>
     </>

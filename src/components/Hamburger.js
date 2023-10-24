@@ -101,7 +101,7 @@ export default function Hamburger(){
               </div>
 
               <div onClick={() => displayChange()}>
-                <Item text='Our Impact' link='/map' isBig={true}/>
+                <Item text='Service Map' link='/map' isBig={true}/>
               </div>
 
               <div onClick={() => displayChange()}>

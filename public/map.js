@@ -1,4 +1,5 @@
 
+
 //Get JSON from Gist
 var clipBorder = JSON.parse(Get('./world.json'));
 var jsonFile = JSON.parse(Get('https://raw.githubusercontent.com/ibp-network/config/main/members.json'));
@@ -8,9 +9,24 @@ var memberKeys = Object.entries(jsonFile.members);
 var locations = [];
 var markerData = [];
 
+/** FOR TOM - ADD FUTURE SERVICE AREA HERE  **/
+
+var example_for_tom_location = { lat: -14.2350, lng: -51.9253, count: 6 }; //This is for the lat & lng of the node
+var example_for_tom_markers = { name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE' }; //This is the popup data
+
+locations = [example_for_tom_location];
+markerData = [example_for_tom_markers];
+
+/*********                        ***********/
+
 //Parameters for map zoom
 const maxZoom = 4;
 const minZoom = 3;
+
+// Create a layer group to hold the markers
+var markers = L.layerGroup();
+var pendingMarkers = L.layerGroup();
+var allMarkers;
 for(var i = 0; i < memberKeys.length; i++){
 
   //If latitude key contains no value and builder is a hobbyist, then builder has no node
@@ -18,7 +34,6 @@ for(var i = 0; i < memberKeys.length; i++){
       memberKeys[i][1].membership !== "hobbyist" && 
     ( memberKeys[i][1].longitude !== "0" && memberKeys[i][1].latitude !== "0" ) && (memberKeys[i][1].longitude.length > 0 && memberKeys[i][1].latitude.length > 0)){
 
-    //Syntax of each object pushed onto respective arrays
     var value = {lat: 0, lng: 0, count: 6};
     var mData = {name: '', website: '', logo: 'logo', level: 1, address: 0, member: "PRO", status: 'ONLINE'};
 
@@ -29,7 +44,7 @@ for(var i = 0; i < memberKeys.length; i++){
     //Data needed for the popup of each marker, pushed onto markerData array
     mData.name      = memberKeys[i][1].name;
     if(memberKeys[i][1].logo === ""){
-      mData.logo = "/img/default-logo.png";
+      mData.logo = "img/default-logo.png";
     }
     else{
       mData.logo      = memberKeys[i][1].logo;
@@ -37,8 +52,6 @@ for(var i = 0; i < memberKeys.length; i++){
     mData.level     = memberKeys[i][1].current_level;
     mData.address   = memberKeys[i][1].services_address;
     mData.website   = memberKeys[i][1].website;
-
-
 
     //If status is inactive, show the node as offline
     if(memberKeys[i][1].active == "0") mData.status = 'OFFLINE';
@@ -51,10 +64,29 @@ for(var i = 0; i < memberKeys.length; i++){
 
 }
 
+/*** TEMPORARY POINTS ADDED ***/ 
 
-for(var i = 0; i < 4; i++){
-  markerData.push(mData);
+function tempData(location, nodeInfo){
+  locations.push(location);
+  markerData.push(nodeInfo);
 }
+
+//New Zealand
+var value = {lat: -40.9006, lng: 174.8860, count: 6};
+var mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
+tempData(value, mData);
+
+//Brazil
+value = {lat: -14.2350, lng: -51.9253, count: 6};
+mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
+tempData(value, mData);
+
+//Arizona
+value = {lat: 34.0489, lng: -111.0937, count: 6};
+mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
+tempData(value, mData);
+
+
 
 //Object storing data of locations of each node
 var locationData = {
@@ -130,12 +162,25 @@ var clipLayer = L.geoJSON(clipBorder, {
 });
 clipLayer.addTo(map);
 
-// Create a layer group to hold the markers
-var markers = L.layerGroup();
-
 //Default icon settings
 var icon = L.icon({
   iconUrl: 'img/Node.png',
+  iconSize: [20, 20],
+  iconAnchor: [10, 10],
+  popupAnchor: [25, -10]
+});
+
+//Offline node icon settings
+var offIcon = L.icon({
+    iconUrl: 'img/offlineNode.png',
+    iconSize: [20, 20],
+    iconAnchor: [10, 10],
+    popupAnchor: [25, -10]
+});
+
+//Future node icon settings
+var futureIcon = L.icon({
+  iconUrl: 'img/futureNode.png',
   iconSize: [20, 20],
   iconAnchor: [10, 10],
   popupAnchor: [25, -10]
@@ -170,16 +215,98 @@ for (var i = 0; i < locationData.data.length; i++) {
   </div>`;
 
   //Bind popup to marker then add to LayerGroup object
-  var marker = L.marker([locationData.data[i].lat, locationData.data[i].lng], {icon: icon}).bindPopup(popup).openPopup();
-  markers.addLayer(marker);
+  var markerIcon = icon;
+  var marker = L.marker([locationData.data[i].lat, locationData.data[i].lng], {icon: markerIcon}).bindPopup(popup).openPopup();
+
+  if(markerData[i].status == 'OFFLINE' && markerData[i].level == 0){
+    markerIcon = offIcon;
+    marker = L.marker([locationData.data[i].lat, locationData.data[i].lng], {icon: markerIcon}).bindPopup(popup).openPopup();
+    pendingMarkers.addLayer(marker);
+  }
+  else{
+    markers.addLayer(marker);
+  }
+
 }
 
+
+
 //Event listener for when a marker is clicked and unclicked
+
 markers.eachLayer(function(marker){
   marker.on('popupopen', function(){
-    marker.setIcon(clickedIcon);
+    //marker.setIcon(clickedIcon);
 
     markers.eachLayer(function(otherMarker){
+      if(otherMarker !== marker.target){
+        otherMarker.setOpacity(0.25);
+
+        pendingMarkers.eachLayer(function(otherMarker){
+          otherMarker.setOpacity(0.25);
+        });
+      }
+    });
+
+    marker.setOpacity(1);
+
+  });
+
+  marker.on('popupclose', function(){
+    //marker.setIcon(icon);
+
+    markers.eachLayer(function(otherMarker){
+      if(otherMarker !== marker.target){
+        otherMarker.setOpacity(1);
+
+        pendingMarkers.eachLayer(function(otherMarker){
+          otherMarker.setOpacity(1);
+        });
+      }
+    });
+
+  });
+});
+
+pendingMarkers.eachLayer(function(marker){
+  marker.on('popupopen', function(){
+    //marker.setIcon(clickedIcon);
+
+    pendingMarkers.eachLayer(function(otherMarker){
+      if(otherMarker !== marker.target){
+        otherMarker.setOpacity(0.25);
+
+        markers.eachLayer(function(otherMarker){
+          otherMarker.setOpacity(0.25);
+        });
+      }
+    });
+
+    marker.setOpacity(1);
+
+  });
+
+  marker.on('popupclose', function(){
+    //marker.setIcon(icon);
+
+    pendingMarkers.eachLayer(function(otherMarker){
+      if(otherMarker !== marker.target){
+        otherMarker.setOpacity(1);
+
+        markers.eachLayer(function(otherMarker){
+          otherMarker.setOpacity(1);
+        });
+      }
+    });
+
+  });
+});
+
+/*
+futureMarkers.eachLayer(function(marker){
+  marker.on('popupopen', function(){
+    //marker.setIcon(clickedIcon);
+
+    pendingMarkers.eachLayer(function(otherMarker){
       if(otherMarker !== marker.target){
         otherMarker.setOpacity(0.25);
       }
@@ -190,9 +317,9 @@ markers.eachLayer(function(marker){
   });
 
   marker.on('popupclose', function(){
-    marker.setIcon(icon);
+    //marker.setIcon(icon);
 
-    markers.eachLayer(function(otherMarker){
+    pendingMarkers.eachLayer(function(otherMarker){
       if(otherMarker !== marker.target){
         otherMarker.setOpacity(1);
       }
@@ -200,7 +327,19 @@ markers.eachLayer(function(marker){
 
   });
 });
+*/
+
 markers.addTo(map);
+pendingMarkers.addTo(map);
+
+allMarkers = {
+  "current_service_region": markers,
+  "pending_service_region": pendingMarkers
+};
+
+var layerControl = L.control.layers(allMarkers);
+layerControl.setPosition('bottomleft');
+layerControl.addTo(map);
 
 //Show heatmap after clipping. Normally redrawn when map is moved as clip region needs to be redrawn.
 map.on('moveend', function() {
