@@ -19,6 +19,28 @@ markerData = [example_for_tom_markers];
 
 /*********                        ***********/
 
+/*** TEMPORARY POINTS ADDED ***/ 
+
+function tempData(location, nodeInfo){
+  locations.push(location);
+  markerData.push(nodeInfo);
+}
+
+//New Zealand
+var value = {lat: -40.9006, lng: 174.8860, count: 6};
+var mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
+tempData(value, mData);
+
+//Brazil
+value = {lat: -14.2350, lng: -51.9253, count: 6};
+mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
+tempData(value, mData);
+
+//Arizona
+value = {lat: 34.0489, lng: -111.0937, count: 6};
+mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
+tempData(value, mData);
+
 //Parameters for map zoom
 const maxZoom = 4;
 const minZoom = 3;
@@ -64,27 +86,7 @@ for(var i = 0; i < memberKeys.length; i++){
 
 }
 
-/*** TEMPORARY POINTS ADDED ***/ 
 
-function tempData(location, nodeInfo){
-  locations.push(location);
-  markerData.push(nodeInfo);
-}
-
-//New Zealand
-var value = {lat: -40.9006, lng: 174.8860, count: 6};
-var mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
-tempData(value, mData);
-
-//Brazil
-value = {lat: -14.2350, lng: -51.9253, count: 6};
-mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
-tempData(value, mData);
-
-//Arizona
-value = {lat: 34.0489, lng: -111.0937, count: 6};
-mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
-tempData(value, mData);
 
 
 
@@ -229,8 +231,6 @@ for (var i = 0; i < locationData.data.length; i++) {
 
 }
 
-
-
 //Event listener for when a marker is clicked and unclicked
 
 markers.eachLayer(function(marker){
@@ -337,7 +337,7 @@ allMarkers = {
   "pending_service_region": pendingMarkers
 };
 
-var layerControl = L.control.layers(allMarkers);
+var layerControl = L.control.layers(null, allMarkers);
 layerControl.setPosition('bottomleft');
 layerControl.addTo(map);
 
