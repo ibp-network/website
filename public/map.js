@@ -7,6 +7,11 @@ var memberKeys = Object.entries(jsonFile.members);
 
 //Arrays containing data for marker and popups
 var locations = [];
+var current_locations = [];
+var pending_locations = [];
+var future_locations = [];
+var location_options = [current_locations, pending_locations, future_locations];
+var all_locations = [];
 var markerData = [];
 
 /** FOR TOM - ADD FUTURE SERVICE AREA HERE  **/
@@ -19,31 +24,16 @@ markerData = [example_for_tom_markers];
 
 /*********                        ***********/
 
-/*** TEMPORARY POINTS ADDED ***/ 
-
-function tempData(location, nodeInfo){
-  locations.push(location);
-  markerData.push(nodeInfo);
-}
-
-//New Zealand
-var value = {lat: -40.9006, lng: 174.8860, count: 6};
-var mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
-tempData(value, mData);
-
-//Brazil
-value = {lat: -14.2350, lng: -51.9253, count: 6};
-mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
-tempData(value, mData);
-
-//Arizona
-value = {lat: 34.0489, lng: -111.0937, count: 6};
-mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
-tempData(value, mData);
-
 //Parameters for map zoom
-const maxZoom = 4;
-const minZoom = 3;
+let maxZoom = 4;
+let minZoom = 3;
+
+mapZoom();
+
+window.addEventListener('resize', function(event){ 
+  mapZoom();
+}, true);
+
 
 // Create a layer group to hold the markers
 var markers = L.layerGroup();
@@ -76,21 +66,51 @@ for(var i = 0; i < memberKeys.length; i++){
     mData.website   = memberKeys[i][1].website;
 
     //If status is inactive, show the node as offline
-    if(memberKeys[i][1].active == "0") mData.status = 'OFFLINE';
+    if(memberKeys[i][1].active === '0'){
+      
+      pending_locations.push(value); 
+      mData.status = 'OFFLINE'
+    }
+    else if(memberKeys[i][1].active !== '0'){
+      current_locations.push(value);
+    }
 
     //Push respective data onto respective arrays
     locations.push(value);
+    all_locations.push(value);
     markerData.push(mData);
   }
 
+}
+console.log(pending_locations);
+/*** TEMPORARY POINTS ADDED ***/ 
 
+function tempData(location, nodeInfo){
+  locations.push(location);
+  all_locations.push(location);
+  pending_locations.push(location);
+  markerData.push(nodeInfo);
 }
 
+//New Zealand
+var value = {lat: -40.9006, lng: 174.8860, count: 6};
+var mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
+tempData(value, mData);
 
+//Brazil
+value = {lat: -14.2350, lng: -51.9253, count: 6};
+mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
+tempData(value, mData);
+
+//Arizona
+value = {lat: 34.0489, lng: -111.0937, count: 6};
+mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
+tempData(value, mData);
 
 
 
 //Object storing data of locations of each node
+
 var locationData = {
   data: locations
 };
@@ -232,7 +252,6 @@ for (var i = 0; i < locationData.data.length; i++) {
 }
 
 //Event listener for when a marker is clicked and unclicked
-
 markers.eachLayer(function(marker){
   marker.on('popupopen', function(){
     //marker.setIcon(clickedIcon);
@@ -333,14 +352,55 @@ markers.addTo(map);
 pendingMarkers.addTo(map);
 
 allMarkers = {
-  "current_service_region": markers,
-  "pending_service_region": pendingMarkers
+  "<h3> Current Service Region </h3>": markers,
+  "<h3> Pending Service Region </h3>": pendingMarkers
 };
 
 var layerControl = L.control.layers(null, allMarkers);
 layerControl.setPosition('bottomleft');
 layerControl.addTo(map);
 
+
+var allChecks = document.querySelectorAll('div.leaflet-control-layers-overlays > label > div');
+var checkboxes = document.querySelectorAll('input.leaflet-control-layers-selector');
+console.log(checkboxes);
+console.log(allChecks);
+for(var i = 0; i < allChecks.length; i++){
+  allChecks[i].setAttribute('data-index', i);
+  allChecks[i].addEventListener('mouseup', function(e){
+    
+
+    console.log('working');
+    if(this.firstElementChild.checked){
+      //Hide Heat
+      
+      removeHeatLocation(location_options[this.dataset.index])
+
+      
+    }
+    else{
+      //Show Heat
+      addHeatLocation(location_options[this.dataset.index])
+      
+
+    }
+    var heatLocation = {
+      data: all_locations
+    }
+    heatmapLayer.setData(heatLocation);
+    showClippedCanvas();
+    e.preventDefault();
+  });
+}
+
+function removeHeatLocation(arr){
+  all_locations = all_locations.filter( (el) => !arr.includes(el));
+}
+
+function addHeatLocation(arr){
+  all_locations = all_locations.concat(arr);
+  all_locations = all_locations.filter((item, idx) => all_locations.indexOf(item) === idx);
+}
 //Show heatmap after clipping. Normally redrawn when map is moved as clip region needs to be redrawn.
 map.on('moveend', function() {
   setTimeout(showClippedCanvas, 25);
@@ -349,6 +409,7 @@ setTimeout(showClippedCanvas, 25);
 
 //Function that shows the final clipping of the heatmap
 function showClippedCanvas() {
+  
   var workCanvas = document.createElement('canvas');
   var workCtx = workCanvas.getContext('2d');
 
@@ -370,6 +431,7 @@ function showClippedCanvas() {
   targetCtx.drawImage(workCanvas, 0, 0);
 }
 
+
 //Helper function to GET files from a given URL
 function Get(url){
     var Httpreq = new XMLHttpRequest(); // a new request
@@ -379,4 +441,11 @@ function Get(url){
     return Httpreq.responseText;
 }
 
-L.control.scale().addTo(map);
+function mapZoom(){
+  maxZoom = 4;
+  minZoom = 3;
+  if(screen.width < 550){
+    minZoom = 1;
+    maxZoom = 7;
+  }
+}

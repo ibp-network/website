@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Map(){
-  document.title = 'IBP | Our Impact';
+  document.title = 'IBP | Service Map';
   const url = window.location.origin + '/node-map.html';
   return(
     <>

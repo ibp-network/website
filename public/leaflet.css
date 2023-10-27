@@ -1,4 +1,47 @@
+/* Load Fonts */
+
+  @font-face{
+	font-family: 'Inter';
+	src: url('./assets/fonts/Inter-Regular.ttf') format('truetype');
+	font-weight: 500;
+  }
+  @font-face{
+	font-family: 'Inter';
+	src: url('./assets/fonts/Inter-Light.ttf') format('truetype');
+	font-weight: 300;
+  }
+  @font-face{
+	font-family: 'Inter';
+	src: url('./assets/fonts/Inter-SemiBold.ttf') format('truetype');
+	font-weight: 600;
+  }
+  @font-face{
+	font-family: 'Inter';
+	src: url('./assets/fonts/Inter-Bold.ttf') format('truetype');
+	font-weight: 700;
+  }
+
 /* required styles */
+h1, h2, h3, h4, p > span, div, span{
+	font-family: 'Inter';
+	font-weight: 300;
+	color: #f4f4f4;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin: 0;
+}
+span{
+	color: #000;
+}
+h3{
+	font-size: 0.825rem;
+	font-weight: 600;
+}
+h4{
+	font-weight: 300;
+	font-size: 0.825rem;
+}
+
 
 .leaflet-pane,
 .leaflet-tile,
@@ -369,9 +412,10 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	position: relative;
 	}
 .leaflet-control-layers-expanded {
-	padding: 6px 10px 6px 6px;
+	
 	color: #333;
-	background: #fff;
+	background: #000;
+	border: 1px solid #3f3f3f !important;
 	}
 .leaflet-control-layers-scrollbar {
 	overflow-y: scroll;
@@ -639,7 +683,16 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	border-right-color: #fff;
 	}
 
+/* CUSTOM ADDS */
+.leaflet-control-layers-overlays > label > div{
+	display: flex;
+	padding: 1rem 0.5rem;
+	border-bottom: 1px solid #3F3F3F;
+}
+.leaflet-control-layers-overlays:last-child > label:last-child > div:last-child{
 
+	border-bottom: none;
+}
 .popup-container{
 	display: flex;
 	flex-direction: column;
@@ -723,4 +776,88 @@ body, #map{
 
 .ms{
 	font-size: 8px;
+}
+.flex{
+	display: flex;
+}
+.center{
+	align-items: center;
+	justify-content: center;
+}
+.col{
+	flex-direction: column;
+}
+
+/* SPINNER */
+.grid-wrapper{
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+}
+.lds-grid {
+	display: inline-block;
+	position: relative;
+	width: 1.5rem;
+	height: 1.5rem;
+	}
+.lds-grid div {
+	position: absolute;
+	width: 0.3rem;
+	height: 0.3rem;
+	border-radius: 50%;
+	background: #fff;
+	animation: lds-grid 1.2s linear infinite;
+}
+.lds-grid div:nth-child(1) {
+	top: 0.15rem;
+	left: 0.15rem;
+	animation-delay: 0s;
+}
+.lds-grid div:nth-child(2) {
+	top: 0.15rem;
+	left: 0.6rem;
+	animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(3) {
+	top: 0.15rem;
+	left: 1rem;
+	animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(4) {
+	top: 0.6rem;
+	left: 0.15rem;
+	animation-delay: -0.4s;
+}
+.lds-grid div:nth-child(5) {
+	top: 0.6rem;
+	left: 0.6rem;
+	animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(6) {
+	top: 0.6rem;
+	left: 1rem;
+	animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(7) {
+	top: 1rem;
+	left: 0.15rem;
+	animation-delay: -0.8s;
+}
+.lds-grid div:nth-child(8) {
+	top: 1rem;
+	left: 0.6rem;
+	animation-delay: -1.2s;
+}
+.lds-grid div:nth-child(9) {
+	top: 1rem;
+	left: 1rem;
+	animation-delay: -1.6s;
+}
+@keyframes lds-grid {
+	0%, 100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
 }
