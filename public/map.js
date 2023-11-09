@@ -243,9 +243,8 @@ for (var i = 0; i < locationData.data.length; i++) {
   var markerIcon = icon;
   var marker = L.marker([locationData.data[i].lat, locationData.data[i].lng], {icon: markerIcon}).bindPopup(popup).openPopup();
   
-  /* TEMPORARY REMOVED -- NEED PARAMETER FOR DETERMINING PENDING SERVICE */
-  /*
-  if(markerData[i].status == 'OFFLINE' && markerData[i].level == 0){
+
+  if(markerData[i].level == 0){
     markerIcon = offIcon;
     marker = L.marker([locationData.data[i].lat, locationData.data[i].lng], {icon: markerIcon}).bindPopup(popup).openPopup();
     pendingMarkers.addLayer(marker);
@@ -253,7 +252,7 @@ for (var i = 0; i < locationData.data.length; i++) {
   else{
     markers.addLayer(marker);
   }
-  */
+  
   markers.addLayer(marker);
 }
 
