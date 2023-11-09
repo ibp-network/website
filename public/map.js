@@ -19,8 +19,10 @@ var markerData = [];
 var example_for_tom_location = { lat: -14.2350, lng: -51.9253, count: 6 }; //This is for the lat & lng of the node
 var example_for_tom_markers = { name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE' }; //This is the popup data
 
+/*
 locations = [example_for_tom_location];
 markerData = [example_for_tom_markers];
+*/
 
 /*********                        ***********/
 
@@ -92,6 +94,7 @@ function tempData(location, nodeInfo){
   markerData.push(nodeInfo);
 }
 
+/*
 //New Zealand
 var value = {lat: -40.9006, lng: 174.8860, count: 6};
 var mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
@@ -106,7 +109,7 @@ tempData(value, mData);
 value = {lat: 34.0489, lng: -111.0937, count: 6};
 mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
 tempData(value, mData);
-
+*/
 
 
 //Object storing data of locations of each node
@@ -239,7 +242,9 @@ for (var i = 0; i < locationData.data.length; i++) {
   //Bind popup to marker then add to LayerGroup object
   var markerIcon = icon;
   var marker = L.marker([locationData.data[i].lat, locationData.data[i].lng], {icon: markerIcon}).bindPopup(popup).openPopup();
-
+  
+  /* TEMPORARY REMOVED -- NEED PARAMETER FOR DETERMINING PENDING SERVICE */
+  /*
   if(markerData[i].status == 'OFFLINE' && markerData[i].level == 0){
     markerIcon = offIcon;
     marker = L.marker([locationData.data[i].lat, locationData.data[i].lng], {icon: markerIcon}).bindPopup(popup).openPopup();
@@ -248,7 +253,8 @@ for (var i = 0; i < locationData.data.length; i++) {
   else{
     markers.addLayer(marker);
   }
-
+  */
+  markers.addLayer(marker);
 }
 
 //Event listener for when a marker is clicked and unclicked
@@ -358,7 +364,7 @@ allMarkers = {
 
 var layerControl = L.control.layers(null, allMarkers);
 layerControl.setPosition('bottomleft');
-layerControl.addTo(map);
+//layerControl.addTo(map);
 
 
 var allChecks = document.querySelectorAll('div.leaflet-control-layers-overlays > label > div');
@@ -370,7 +376,6 @@ for(var i = 0; i < allChecks.length; i++){
   allChecks[i].addEventListener('mouseup', function(e){
     
 
-    console.log('working');
     if(this.firstElementChild.checked){
       //Hide Heat
       
