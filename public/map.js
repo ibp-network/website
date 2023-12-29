@@ -10,21 +10,11 @@ var locations = [];
 var current_locations = [];
 var pending_locations = [];
 var future_locations = [];
-var location_options = [current_locations, pending_locations, future_locations];
+//var location_options = [current_locations, pending_locations, future_locations];
+var location_options = [current_locations];
+
 var all_locations = [];
 var markerData = [];
-
-/** FOR TOM - ADD FUTURE SERVICE AREA HERE  **/
-
-var example_for_tom_location = { lat: -14.2350, lng: -51.9253, count: 6 }; //This is for the lat & lng of the node
-var example_for_tom_markers = { name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE' }; //This is the popup data
-
-/*
-locations = [example_for_tom_location];
-markerData = [example_for_tom_markers];
-*/
-
-/*********                        ***********/
 
 //Parameters for map zoom
 let maxZoom = 4;
@@ -70,47 +60,21 @@ for(var i = 0; i < memberKeys.length; i++){
     //If status is inactive, show the node as offline
     if(memberKeys[i][1].active === '0'){
       
-      pending_locations.push(value); 
+      //pending_locations.push(value); 
       mData.status = 'OFFLINE'
     }
     else if(memberKeys[i][1].active !== '0'){
       current_locations.push(value);
+      //Push respective data onto respective arrays
+      locations.push(value);
+      all_locations.push(value);
+      markerData.push(mData);
     }
-
-    //Push respective data onto respective arrays
-    locations.push(value);
-    all_locations.push(value);
-    markerData.push(mData);
   }
 
 }
 console.log(pending_locations);
 /*** TEMPORARY POINTS ADDED ***/ 
-
-function tempData(location, nodeInfo){
-  locations.push(location);
-  all_locations.push(location);
-  pending_locations.push(location);
-  markerData.push(nodeInfo);
-}
-
-/*
-//New Zealand
-var value = {lat: -40.9006, lng: 174.8860, count: 6};
-var mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
-tempData(value, mData);
-
-//Brazil
-value = {lat: -14.2350, lng: -51.9253, count: 6};
-mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
-tempData(value, mData);
-
-//Arizona
-value = {lat: 34.0489, lng: -111.0937, count: 6};
-mData = {name: 'Pending Service', website: '', logo: "img/default-logo-2.jpg", level: '', address: 0, member: "", status: 'OFFLINE'};
-tempData(value, mData);
-*/
-
 
 //Object storing data of locations of each node
 
@@ -325,33 +289,6 @@ pendingMarkers.eachLayer(function(marker){
   });
 });
 
-/*
-futureMarkers.eachLayer(function(marker){
-  marker.on('popupopen', function(){
-    //marker.setIcon(clickedIcon);
-
-    pendingMarkers.eachLayer(function(otherMarker){
-      if(otherMarker !== marker.target){
-        otherMarker.setOpacity(0.25);
-      }
-    });
-
-    marker.setOpacity(1);
-
-  });
-
-  marker.on('popupclose', function(){
-    //marker.setIcon(icon);
-
-    pendingMarkers.eachLayer(function(otherMarker){
-      if(otherMarker !== marker.target){
-        otherMarker.setOpacity(1);
-      }
-    });
-
-  });
-});
-*/
 
 markers.addTo(map);
 pendingMarkers.addTo(map);
