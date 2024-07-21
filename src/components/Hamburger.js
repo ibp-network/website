@@ -105,7 +105,7 @@ export default function Hamburger(){
               </div>
 
               <div onClick={() => displayChange()}>
-                <Item text='Apply' link='https://forms.gle/dbsyK4KPEJ8N4Qmz5' target='_blank' isBig={true}/>
+                <Item text='Apply' link=' https://forms.gle/X3GNpoYh9SGAP4Ts6' target='_blank' isBig={true}/>
               </div>
 
             </div>
